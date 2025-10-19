@@ -5,7 +5,7 @@
 
 'use client'; // This tells Next.js this component uses client-side features (state, clicks)
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { projects, projectCategories } from '@/lib/data';
@@ -16,6 +16,37 @@ export default function Portfolio() {
   // STATE: React's way of storing data that can change
   // When selectedCategory changes, React re-renders the component
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [videosPreloaded, setVideosPreloaded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Preload videos when portfolio section comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !videosPreloaded) {
+            // Preload all videos
+            projects.forEach((project) => {
+              if (project.video) {
+                const video = document.createElement('video');
+                video.src = project.video;
+                video.preload = 'auto';
+                video.load();
+              }
+            });
+            setVideosPreloaded(true);
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [videosPreloaded]);
 
   // FILTERING: Show only projects matching the selected category
   const filteredProjects = selectedCategory === 'All'
@@ -23,7 +54,7 @@ export default function Portfolio() {
     : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="portfolio" className="py-20 px-4">
+    <section id="portfolio" className="py-20 px-4" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <ScrollReveal>
@@ -147,7 +178,7 @@ function ProjectCard({ project }: { project: Project }) {
               autoPlay
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               onEnded={() => setVideoEnded(true)}
               onCanPlay={() => setVideoReady(true)}
               className="absolute inset-0 w-full h-full object-contain bg-inherit z-10"
