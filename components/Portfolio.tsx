@@ -119,19 +119,15 @@ function ProjectCard({ project }: { project: Project }) {
   const [isHovering, setIsHovering] = useState(false);
   // State to track if video has finished playing
   const [videoEnded, setVideoEnded] = useState(false);
-  // State to track if video is ready to play
-  const [videoReady, setVideoReady] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
     setVideoEnded(false); // Reset video ended state when entering
-    setVideoReady(false); // Reset ready state when entering
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
     setVideoEnded(false); // Reset video ended state when leaving
-    setVideoReady(false); // Reset ready state when leaving
   };
 
   return (
@@ -172,24 +168,15 @@ function ProjectCard({ project }: { project: Project }) {
         
         {/* Show video on top when hovering and hasn't ended */}
         {isHovering && project.video && !videoEnded && (
-          <>
-            <video
-              src={project.video}
-              autoPlay
-              muted
-              playsInline
-              preload="auto"
-              onEnded={() => setVideoEnded(true)}
-              onCanPlay={() => setVideoReady(true)}
-              className="absolute inset-0 w-full h-full object-contain bg-inherit z-10"
-            />
-            {/* Loading indicator - only show if video is not ready */}
-            {!videoReady && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 z-20">
-                <div className="w-8 h-8 border-4 border-foreground/30 border-t-foreground rounded-full animate-spin"></div>
-              </div>
-            )}
-          </>
+          <video
+            src={project.video}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onEnded={() => setVideoEnded(true)}
+            className="absolute inset-0 w-full h-full object-contain bg-inherit z-10"
+          />
         )}
         {/* Status Badge (if applicable) */}
         {project.status && (
