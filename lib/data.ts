@@ -89,7 +89,7 @@ export const projects = [
     image: "/images/mealcreator.png",
     video: "/vidoes/mealcreator.mp4",
     liveUrl: "https://mealcreator.onrender.com/",
-    githubUrl: "https://github.com/yourusername/mealcreator",
+    githubUrl: "https://github.com/NatanelRichey/MealCreator",
     status: "In Development",
     highlights: [
       "Server-side rendering with EJS templates",
@@ -106,8 +106,8 @@ export const projects = [
     longDescription: "A powerful crawler application that extracts WhatsApp message data and performs real-time sentiment analysis using AI APIs. Provides visualizations and insights about conversation patterns and emotional trends.",
     technologies: ["Node.js", "OpenAI API", "Web Scraping", "Data Analysis"],
     image: "/images/whatsapp-crawler.png",
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    githubUrl: "https://github.com/yourusername/whatsapp-crawler",
+    video: "/vidoes/whatsapp-crawler.mp4",
+    githubUrl: "https://github.com/NatanelRichey/NeedleWhatsappCrawler",
     highlights: [
       "Automated data collection from WhatsApp",
       "Integration with AI sentiment analysis APIs",
