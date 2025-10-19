@@ -88,15 +88,19 @@ function ProjectCard({ project }: { project: Project }) {
   const [isHovering, setIsHovering] = useState(false);
   // State to track if video has finished playing
   const [videoEnded, setVideoEnded] = useState(false);
+  // State to track if video is loading
+  const [videoLoading, setVideoLoading] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
     setVideoEnded(false); // Reset video ended state when entering
+    setVideoLoading(true); // Start loading state
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
     setVideoEnded(false); // Reset video ended state when leaving
+    setVideoLoading(false); // Reset loading state
   };
 
   return (
@@ -117,33 +121,45 @@ function ProjectCard({ project }: { project: Project }) {
             : 'bg-foreground/10'
         }`}
       >
-        {/* Show video on hover if available and hasn't ended, otherwise show image */}
-        {isHovering && project.video && !videoEnded ? (
-          <video
-            src={project.video}
-            autoPlay
-            muted
-            playsInline
-            onEnded={() => setVideoEnded(true)}
-            className="absolute inset-0 w-full h-full object-contain"
-          />
-        ) : (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className={`group-hover:scale-105 transition-transform duration-300 ${
-              project.title.includes('MealCreator')
-                ? 'object-cover'
-                : project.title.includes('TheraBot')
-                ? 'object-contain'
-                : project.title.includes('WhatsApp')
-                ? 'object-cover object-[center_90%]'
-                : project.title.includes('Interactive CV')
-                ? 'object-contain'
-                : 'object-contain'
-            }`}
-          />
+        {/* Always show image as base layer */}
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className={`group-hover:scale-105 transition-transform duration-300 ${
+            project.title.includes('MealCreator')
+              ? 'object-cover'
+              : project.title.includes('TheraBot')
+              ? 'object-contain'
+              : project.title.includes('WhatsApp')
+              ? 'object-cover object-[center_90%]'
+              : project.title.includes('Interactive CV')
+              ? 'object-contain'
+              : 'object-contain'
+          }`}
+        />
+        
+        {/* Show video on top when hovering and hasn't ended */}
+        {isHovering && project.video && !videoEnded && (
+          <>
+            <video
+              src={project.video}
+              autoPlay
+              muted
+              playsInline
+              preload="metadata"
+              onEnded={() => setVideoEnded(true)}
+              onLoadedData={() => setVideoLoading(false)}
+              onCanPlay={() => setVideoLoading(false)}
+              className="absolute inset-0 w-full h-full object-contain bg-inherit z-10"
+            />
+            {/* Loading indicator */}
+            {videoLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 z-20">
+                <div className="w-8 h-8 border-4 border-foreground/30 border-t-foreground rounded-full animate-spin"></div>
+              </div>
+            )}
+          </>
         )}
         {/* Status Badge (if applicable) */}
         {project.status && (
