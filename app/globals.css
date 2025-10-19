@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Light mode - explicitly set */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Dark mode - applied when .dark class is on html element */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* Automatic dark mode based on system preference (only if no class set) */
+@media (prefers-color-scheme: dark) {
+  :root:not(.dark):not(.light) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-saira), 'Saira', system-ui, sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, .font-bold {
+  font-family: var(--font-saira), 'Saira', sans-serif;
+  font-weight: 600;
+}
