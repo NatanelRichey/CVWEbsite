@@ -88,19 +88,19 @@ function ProjectCard({ project }: { project: Project }) {
   const [isHovering, setIsHovering] = useState(false);
   // State to track if video has finished playing
   const [videoEnded, setVideoEnded] = useState(false);
-  // State to track if video is loading
-  const [videoLoading, setVideoLoading] = useState(false);
+  // State to track if video is ready to play
+  const [videoReady, setVideoReady] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
     setVideoEnded(false); // Reset video ended state when entering
-    setVideoLoading(true); // Start loading state
+    setVideoReady(false); // Reset ready state when entering
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
     setVideoEnded(false); // Reset video ended state when leaving
-    setVideoLoading(false); // Reset loading state
+    setVideoReady(false); // Reset ready state when leaving
   };
 
   return (
@@ -149,12 +149,11 @@ function ProjectCard({ project }: { project: Project }) {
               playsInline
               preload="metadata"
               onEnded={() => setVideoEnded(true)}
-              onLoadedData={() => setVideoLoading(false)}
-              onCanPlay={() => setVideoLoading(false)}
+              onCanPlay={() => setVideoReady(true)}
               className="absolute inset-0 w-full h-full object-contain bg-inherit z-10"
             />
-            {/* Loading indicator */}
-            {videoLoading && (
+            {/* Loading indicator - only show if video is not ready */}
+            {!videoReady && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 z-20">
                 <div className="w-8 h-8 border-4 border-foreground/30 border-t-foreground rounded-full animate-spin"></div>
               </div>
