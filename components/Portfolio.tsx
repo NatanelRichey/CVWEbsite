@@ -175,7 +175,11 @@ function ProjectCard({ project }: { project: Project }) {
             playsInline
             preload="auto"
             onEnded={() => setVideoEnded(true)}
-            className="absolute inset-0 w-full h-full object-contain bg-inherit z-10"
+            className={`absolute inset-0 w-full h-full object-contain z-10 ${
+              project.title.includes('MealCreator') 
+                ? 'bg-black' 
+                : 'bg-inherit'
+            }`}
           />
         )}
         {/* Status Badge (if applicable) */}
