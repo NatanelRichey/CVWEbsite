@@ -88,7 +88,7 @@ export const projects = [
     technologies: ["Express", "MongoDB", "EJS", "Node.js", "JavaScript"],
     image: "/images/mealcreator.png",
     video: "/vidoes/mealcreator.mp4",
-    liveUrl: "https://mealcreator.onrender.com/",
+    liveUrl: "https://meal-creator-delta.vercel.app/",
     githubUrl: "https://github.com/NatanelRichey/MealCreator",
     status: "In Development",
     highlights: [

@@ -1092,27 +1092,638 @@ useEffect(() => {
 
 *This document created: October 19, 2025*
 *Updated with Stage 2: October 19, 2025*
+*Updated with Stage 3: October 19, 2025*
 *Project: Interactive CV Website*
 *Tech Stack: Next.js 15, React 19, TypeScript, Tailwind CSS v4, Framer Motion*
 
 ---
 
+# STAGE 3 - VIDEO INTEGRATION & MEDIA HANDLING
+
+---
+
+## 14. Video Hover System
+
+### What We Built
+A sophisticated hover system that **replaces static images with videos** when hovering over portfolio project cards.
+
+### The Challenge
+We needed to:
+1. Show a video when hovering over a project card
+2. Play the video **only once** (not loop)
+3. Show the image again after video ends
+4. Reset video when user leaves and returns
+5. Make videos responsive and fit properly
+
+### Type System Extension
+
+First, we extended the `Project` type to support optional videos:
+
+```typescript
+// lib/types.ts
+export interface Project {
+  id: number;
+  title: string;
+  // ... other fields
+  image: string;
+  video?: string;  // ← NEW: Optional video URL
+  // ... other fields
+}
+```
+
+**Why optional (`?`)?** Not all projects have videos. This makes it backwards compatible.
+
+### State Management Strategy
+
+```typescript
+// components/Portfolio.tsx - ProjectCard component
+const [isHovering, setIsHovering] = useState(false);
+const [videoEnded, setVideoEnded] = useState(false);
+```
+
+**Two separate states - why?**
+
+1. **`isHovering`** - Tracks mouse position (over card or not)
+2. **`videoEnded`** - Tracks if video finished playing
+
+**The Logic Flow:**
+```
+User hovers → isHovering = true → Video plays
+Video finishes → videoEnded = true → Show image
+User still hovering → Image stays (video ended)
+User leaves → Both states reset
+User returns → Video plays again from start
+```
+
+### Event Handler Pattern
+
+```typescript
+const handleMouseEnter = () => {
+  setIsHovering(true);
+  setVideoEnded(false); // Reset video state
+};
+
+const handleMouseLeave = () => {
+  setIsHovering(false);
+  setVideoEnded(false); // Reset for next visit
+};
+```
+
+**Why reset `videoEnded` on both enter AND leave?**
+- On **enter**: Prepare for new video playback
+- On **leave**: Clean slate for next hover
+
+### Conditional Rendering Logic
+
+```typescript
+{isHovering && project.video && !videoEnded ? (
+  <video src={project.video} ... />
+) : (
+  <Image src={project.image} ... />
+)}
+```
+
+**Breaking down the condition:**
+```typescript
+isHovering          // User's mouse is over the card
+&&                  // AND
+project.video       // Project has a video URL
+&&                  // AND
+!videoEnded         // Video hasn't finished yet
+? <video />         // Then show video
+: <Image />         // Otherwise show image
+```
+
+### Video Element Properties
+
+```typescript
+<video
+  src={project.video}
+  autoPlay          // Start immediately
+  muted             // Required for autoPlay in browsers
+  playsInline       // Prevent fullscreen on mobile
+  onEnded={() => setVideoEnded(true)}  // Track when finished
+  className="absolute inset-0 w-full h-full object-contain"
+/>
+```
+
+**Key Properties Explained:**
+
+| Property | Purpose | Why? |
+|----------|---------|------|
+| `autoPlay` | Starts playing immediately | No click needed |
+| `muted` | Silences audio | Browsers block unmuted autoplay |
+| `playsInline` | Plays in element (not fullscreen) | Better mobile UX |
+| `onEnded` | Event when video finishes | Triggers state update |
+
+**No `loop` attribute** - We deliberately excluded this so video plays once.
+
+### CSS Object Fit - Making Videos Responsive
+
+```typescript
+className="absolute inset-0 w-full h-full object-contain"
+```
+
+**CSS Breakdown:**
+- `absolute inset-0` = Position in top-left, stretch to container edges
+- `w-full h-full` = Take full width and height
+- `object-contain` = Fit entire video without cropping
+
+**object-contain vs object-cover:**
+
+```
+object-contain:
+┌──────────────┐
+│   ┌──────┐   │  ← Entire video visible
+│   │VIDEO │   │    Black bars may appear
+│   └──────┘   │    Maintains aspect ratio
+└──────────────┘
+
+object-cover:
+┌──────────────┐
+│█████VIDEO████│  ← Fills container
+│█████VIDEO████│    Parts may be cropped
+│█████VIDEO████│    No gaps
+└──────────────┘
+```
+
+**We used `object-contain`** because project demos need to be fully visible.
+
+### Hover Target Expansion
+
+Initially, video played only when hovering over the image. We moved the event handlers to the entire card:
+
+```typescript
+<div 
+  className="..." 
+  onMouseEnter={handleMouseEnter}  // ← On card, not just image
+  onMouseLeave={handleMouseLeave}
+>
+  <div className="image-container">...</div>
+  <div className="project-info">...</div>  // ← Hovering here also triggers video
+</div>
+```
+
+**Why?** Better UX - video stays playing while reading project details.
+
+### Per-Project Image Styling
+
+Different projects needed different image treatments:
+
+```typescript
+className={`... ${
+  project.title.includes('MealCreator')
+    ? 'object-cover'              // Fill container, may crop
+  : project.title.includes('TheraBot')
+    ? 'object-contain'            // Show entire image
+  : project.title.includes('WhatsApp')
+    ? 'object-cover object-[center_90%]'  // Cover, offset to 90%
+  : project.title.includes('Interactive CV')
+    ? 'object-contain'            // Show entire image
+  : 'object-contain'              // Default
+}`}
+```
+
+**Custom Background Colors:**
+```typescript
+className={`relative h-48 overflow-hidden ${
+  project.title.includes('TheraBot') 
+    ? 'bg-[#fcf7ed]'              // Cream background
+  : project.title.includes('WhatsApp')
+    ? 'bg-[#0c0f12]'              // Dark background
+  : project.title.includes('Interactive CV')
+    ? 'bg-black'                  // Black background
+  : 'bg-foreground/10'            // Default semi-transparent
+}`}
+```
+
+**Why different backgrounds?** Some images have transparent areas or specific color schemes.
+
+---
+
+## 15. HTML Video Element Deep Dive
+
+### Video vs Image in React
+
+**Image Component (Next.js):**
+```typescript
+<Image src="/image.png" fill alt="..." />
+```
+- Automatic optimization
+- Lazy loading
+- Responsive images
+- `fill` prop for container-based sizing
+
+**Video Element:**
+```typescript
+<video src="/video.mp4" autoPlay muted playsInline />
+```
+- Native HTML element
+- No automatic optimization
+- Need manual responsive handling
+- More control over playback
+
+### Video File Considerations
+
+**Video Formats:**
+- **MP4 (H.264)** - Best browser support, good compression
+- **WebM** - Better compression, less browser support
+- **OGG** - Open source, declining support
+
+**Best Practice:**
+```typescript
+<video>
+  <source src="/video.mp4" type="video/mp4" />
+  <source src="/video.webm" type="video/webm" />
+  Your browser doesn't support video.
+</video>
+```
+
+**Performance Tips:**
+- Keep videos short (10-30 seconds)
+- Compress before uploading
+- Consider video hosting (Vimeo, YouTube) for longer videos
+- Use appropriate resolution (1080p max for web)
+
+### Browser Autoplay Policies
+
+**Modern browsers block autoplay videos with sound** to prevent annoying users.
+
+**The Rule:**
+```
+Autoplay WITHOUT sound = ✅ Allowed
+Autoplay WITH sound = ❌ Blocked (unless user interacted with site)
+```
+
+**That's why we need:**
+```typescript
+<video autoPlay muted>  // muted is REQUIRED for autoPlay
+```
+
+### Video Events
+
+The `<video>` element fires many events we can listen to:
+
+```typescript
+<video
+  onPlay={() => console.log('Started')}
+  onPause={() => console.log('Paused')}
+  onEnded={() => console.log('Finished')}  // ← We use this one
+  onTimeUpdate={(e) => console.log(e.currentTarget.currentTime)}
+  onLoadedData={() => console.log('Video loaded')}
+  onError={() => console.log('Failed to load')}
+/>
+```
+
+**Common Use Cases:**
+- `onEnded` - Show different UI when video finishes
+- `onTimeUpdate` - Build custom progress bar
+- `onError` - Show fallback image if video fails
+
+---
+
+## 16. Advanced State Patterns
+
+### Multiple Related States
+
+```typescript
+const [isHovering, setIsHovering] = useState(false);
+const [videoEnded, setVideoEnded] = useState(false);
+```
+
+**When to use multiple states vs one object?**
+
+```typescript
+// ❌ Could do this (but more complex):
+const [videoState, setVideoState] = useState({
+  isHovering: false,
+  videoEnded: false
+});
+
+// ✅ Better - separate states for unrelated concerns:
+const [isHovering, setIsHovering] = useState(false);
+const [videoEnded, setVideoEnded] = useState(false);
+```
+
+**Rule of thumb:**
+- **Separate states** if they change independently
+- **Object state** if values are always updated together
+
+### State Reset Pattern
+
+```typescript
+const handleMouseEnter = () => {
+  setIsHovering(true);
+  setVideoEnded(false);  // Reset dependent state
+};
+```
+
+**Key Pattern:** When one state changes, reset related states that depend on it.
+
+### Derived State (Don't Overuse State!)
+
+```typescript
+// ❌ BAD - Unnecessary state
+const [showVideo, setShowVideo] = useState(false);
+useEffect(() => {
+  setShowVideo(isHovering && !videoEnded);
+}, [isHovering, videoEnded]);
+
+// ✅ GOOD - Calculate directly
+const showVideo = isHovering && project.video && !videoEnded;
+```
+
+**Rule:** If you can calculate a value from existing state, don't store it in separate state.
+
+---
+
+## 17. Component Composition Patterns
+
+### Before: Simple Component
+
+```typescript
+function ProjectCard({ project }) {
+  return (
+    <div>
+      <Image src={project.image} />
+      <h3>{project.title}</h3>
+    </div>
+  );
+}
+```
+
+### After: Complex Interactive Component
+
+```typescript
+function ProjectCard({ project }) {
+  // State management
+  const [isHovering, setIsHovering] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
+
+  // Event handlers
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    setVideoEnded(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setVideoEnded(false);
+  };
+
+  // Conditional rendering logic
+  return (
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {isHovering && project.video && !videoEnded ? (
+        <video ... />
+      ) : (
+        <Image ... />
+      )}
+      <h3>{project.title}</h3>
+    </div>
+  );
+}
+```
+
+**Component Evolution:**
+1. **Stage 1**: Static presentation
+2. **Stage 2**: Basic interactivity (hover effects)
+3. **Stage 3**: Complex state-driven behavior (video system)
+
+---
+
+## 18. Data Structure Evolution
+
+### Type System Growth
+
+```typescript
+// Stage 1: Basic project data
+interface Project {
+  id: number;
+  title: string;
+  image: string;
+}
+
+// Stage 2: Added optional fields
+interface Project {
+  id: number;
+  title: string;
+  image: string;
+  liveUrl?: string;  // Optional
+  githubUrl?: string; // Optional
+}
+
+// Stage 3: Added video support
+interface Project {
+  id: number;
+  title: string;
+  image: string;
+  video?: string;  // NEW: Optional video
+  liveUrl?: string;
+  githubUrl?: string;
+}
+```
+
+**Progressive Enhancement:** Each stage adds features without breaking existing functionality.
+
+### Data File Organization
+
+```typescript
+// lib/data.ts
+export const projects = [
+  {
+    id: 1,
+    title: "MealCreator Website",
+    image: "/images/mealcreator.png",
+    video: "/videos/mealcreator.mp4",  // ← Added in Stage 3
+    status: "In Development",           // ← Status badge
+    // ... rest of data
+  },
+];
+```
+
+**Separation of Concerns:**
+- **lib/types.ts** - Type definitions (structure)
+- **lib/data.ts** - Actual content (data)
+- **components/** - Presentation logic (UI)
+
+This makes it easy to:
+- Update content without touching code
+- Change types without touching data
+- Modify UI without touching content
+
+---
+
+## 19. Stage 3 Summary
+
+### Features Built
+✅ **Video hover system** - Play project demo videos on hover  
+✅ **Smart video playback** - Plays once, returns to image  
+✅ **Responsive video sizing** - Fits perfectly in containers  
+✅ **Per-project styling** - Custom backgrounds and object-fit  
+✅ **Enhanced hover targets** - Video plays when hovering anywhere on card  
+
+### Technical Concepts Learned
+
+**React Patterns:**
+- Multiple coordinated state variables
+- State reset patterns
+- Derived state vs stored state
+- Complex conditional rendering
+
+**HTML5 Video:**
+- Video element properties and methods
+- Browser autoplay policies
+- Video events (onEnded)
+- Responsive video sizing with CSS
+
+**CSS Techniques:**
+- `object-fit` (contain vs cover)
+- `object-position` for fine-tuning
+- Absolute positioning with `inset-0`
+- Custom background colors per component
+
+**TypeScript:**
+- Optional properties (`?`)
+- Type system evolution
+- Progressive enhancement
+
+### Code Patterns Summary
+
+```typescript
+// Pattern 1: Multiple States for Complex Interactions
+const [isHovering, setIsHovering] = useState(false);
+const [videoEnded, setVideoEnded] = useState(false);
+
+// Pattern 2: Coordinated State Updates
+const handleMouseEnter = () => {
+  setIsHovering(true);
+  setVideoEnded(false); // Reset related state
+};
+
+// Pattern 3: Complex Conditional Rendering
+{condition1 && condition2 && !condition3 ? (
+  <ComponentA />
+) : (
+  <ComponentB />
+)}
+
+// Pattern 4: Event Callbacks That Update State
+<video onEnded={() => setVideoEnded(true)} />
+
+// Pattern 5: Responsive Media with Object-Fit
+<video className="absolute inset-0 w-full h-full object-contain" />
+```
+
+### Real-World Applications
+
+These patterns are used in:
+- **Netflix/YouTube** - Video players with complex state
+- **Instagram/TikTok** - Auto-playing content on scroll
+- **E-commerce** - Product image/video galleries
+- **Landing pages** - Hero videos with fallback images
+- **Documentation** - Animated examples
+
+---
+
+## 20. Questions to Test Understanding (Stage 3)
+
+1. Why do we need TWO state variables (isHovering and videoEnded)?
+2. What happens if you remove `muted` from a video with `autoPlay`?
+3. Why reset `videoEnded` in both mouseEnter AND mouseLeave?
+4. What's the difference between `object-contain` and `object-cover`?
+5. Why did we remove the `loop` attribute from the video?
+6. When should you use derived state vs useState?
+7. Why is the video positioned with `absolute inset-0`?
+
+### Answers:
+
+1. **Two states needed** because they track different things: one tracks mouse position (hover), one tracks video completion. They change at different times.
+
+2. **Browser blocks autoplay** - Most browsers prevent videos with sound from autoplaying to avoid annoying users. Video won't play without user interaction.
+
+3. **Reset on enter** = Prepare for new playback. **Reset on leave** = Clean state for next visit. This ensures video always restarts from beginning.
+
+4. **object-contain** = Shows entire content, may have empty space. **object-cover** = Fills container completely, may crop content.
+
+5. **UX decision** - Playing once is less distracting. User can see demo, then it returns to static state. If they want to see again, they can hover again.
+
+6. **Use derived state** when value can be calculated from existing state/props. **Use useState** when you can't calculate it (like user input, API response, time-based changes).
+
+7. **absolute inset-0** positions the video to fill its container completely. It's positioned relative to the parent and stretches to all edges (top: 0, right: 0, bottom: 0, left: 0).
+
+---
+
+## 21. Performance Considerations
+
+### Video Loading
+
+Videos are **much larger** than images:
+- Image: 50-500 KB
+- Video: 1-10 MB or more
+
+**Optimization strategies:**
+1. **Lazy loading** - Only load videos when needed
+2. **Compression** - Reduce file size
+3. **Resolution** - Don't use 4K for small displays
+4. **Streaming** - Use CDN or video hosting service
+
+### Current Implementation
+
+```typescript
+<video src={project.video} />
+```
+
+**This loads the video immediately when hovering.** For production, consider:
+
+```typescript
+// Preload just metadata, not full video
+<video src={project.video} preload="metadata" />
+
+// Or lazy load completely
+{isHovering && (
+  <video src={project.video} />
+)}
+```
+
+### React Re-renders
+
+Our implementation is efficient because:
+1. **State is local** to each ProjectCard (not global)
+2. **Only the hovered card re-renders** (not all cards)
+3. **Video starts/stops immediately** (no loading delay from state updates)
+
+---
+
+## Congratulations! 🎉
+
+**Stage 3 Complete!** You now understand:
+- Complex state coordination
+- HTML5 video element
+- Media optimization
+- Advanced conditional rendering
+- Event-driven UI updates
+- CSS object-fit for responsive media
+
+**You've built a production-ready portfolio feature** that showcases your projects with professional video demos!
+
+---
+
 ## Next Learning Steps
 
-**Stage 2 Complete!** ✅ You now understand:
-- React Hooks (useState, useEffect, useRef)
-- Browser APIs (localStorage, event listeners)
-- Animation libraries (Framer Motion)
-- Advanced CSS (transforms, transitions)
+**Stage 3 Complete!** ✅ You now have:
+- Advanced React state patterns
+- Media handling expertise
+- Complex user interaction flows
 
 **Possible Next Steps:**
-1. **Stage 3**: 3D elements, particle effects, advanced interactions
-2. **Custom Hooks**: Extract reusable logic
+1. **Performance optimization**: Lazy loading, code splitting
+2. **Custom Hooks**: Extract reusable video logic
 3. **Context API**: Global state without prop drilling
-4. **Form Handling**: React Hook Form for complex forms
-5. **API Integration**: Fetch data from backends
-6. **Testing**: Jest and React Testing Library
-7. **Deployment**: Push to GitHub, deploy on Vercel
+4. **Testing**: Jest and React Testing Library
+5. **Accessibility**: Keyboard navigation, ARIA labels
+6. **Deployment**: Deploy to Vercel/Netlify
+7. **Analytics**: Track user interactions
 
-Remember: **You learn by building.** This CV project is giving you real React experience!
+Remember: **You learn by building.** This CV project is giving you real-world React experience!
 
