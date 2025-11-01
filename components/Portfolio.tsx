@@ -16,37 +16,35 @@ export default function Portfolio() {
   // STATE: React's way of storing data that can change
   // When selectedCategory changes, React re-renders the component
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [videosPreloaded, setVideosPreloaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const preloadedVideosRef = useRef<HTMLVideoElement[]>([]);
 
-  // Preload videos when portfolio section comes into view
+  // Preload all videos immediately when component mounts (background loading)
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !videosPreloaded) {
-            // Preload all videos
-            projects.forEach((project) => {
-              if (project.video) {
-                const video = document.createElement('video');
-                video.src = project.video;
-                video.preload = 'auto';
-                video.load();
-              }
-            });
-            setVideosPreloaded(true);
-          }
-        });
-      },
-      { threshold: 0.1 } // Trigger when 10% of section is visible
-    );
+    // Create and preload all videos in the background
+    projects.forEach((project) => {
+      if (project.video) {
+        const video = document.createElement('video');
+        video.src = project.video;
+        video.preload = 'auto';
+        video.muted = true; // Muted videos load faster and avoid autoplay restrictions
+        video.playsInline = true;
+        // Start loading the video buffer
+        video.load();
+        // Store reference to prevent garbage collection
+        preloadedVideosRef.current.push(video);
+      }
+    });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [videosPreloaded]);
+    // Cleanup: remove video elements when component unmounts
+    return () => {
+      preloadedVideosRef.current.forEach((video) => {
+        video.src = '';
+        video.load();
+      });
+      preloadedVideosRef.current = [];
+    };
+  }, []); // Empty dependency array - runs once on mount
 
   // FILTERING: Show only projects matching the selected category
   const filteredProjects = selectedCategory === 'All'

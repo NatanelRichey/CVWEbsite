@@ -139,7 +139,6 @@ export const projects = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     image: "/images/cv-website.png",
     video: "/vidoes/cv-website.mp4",
-    liveUrl: "https://your-cv-url.com",
     githubUrl: "https://github.com/yourusername/cv-website",
     highlights: [
       "Framer Motion with Intersection Observer API (useInView) for scroll-triggered animations and custom easing functions",
