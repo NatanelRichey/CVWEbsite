@@ -1,160 +1,72 @@
-================================================================================
-CURRICULUM VITAE - NATANEL RICHEY
-================================================================================
+Natanel Richey     0584171094     natanelrichey@gmail.com    linkedin
 
-PERSONAL INFORMATION
---------------------------------------------------------------------------------
-Name: Natanel Richey
-Title: Full-Stack Developer | AI Enthusiast
-Location: Remote - Global
-Email: natanelrichey@gmail.com
-Phone: +972 584171094
+Software-developer skilled in Python and JavaScript focused on App Design and Machine Learning
 
-Social Links:
-- LinkedIn: https://www.linkedin.com/in/natanelrichey/
-- GitHub: https://github.com/NatanelRichey
+Experience in building full-stack websites, training AI models, data analysis (with AI), and collaborating on innovative projects.
 
-Bio: 
-- Fast-learning and hard-working developer with expertise in building modern web applications and integrating AI solutions.
-- Learning something new every day.
-- Currently exploring cutting-edge technologies and building innovative projects.
+Fast learning, hard-working, hungry for more and passionate about designing innovative solutions that bridge the gap between human behavior and machine intelligence, applying computational methods to understand complex data while maintaining focus on user-centric design and ethical AI development.
 
 
 EDUCATION
 --------------------------------------------------------------------------------
-Institution: Hebrew University of Jerusalem
-Degree: BSc. in Computer Science (Double Major in Psychology)
-Location: Jerusalem, Israel
-Period: 2021 - 2025
-Achievement: Graduated with honors in Psychology.
+Hebrew University of Jerusalem
+BSc. in Computer Science, B.A. in Psychology (Hons.)
+Jerusalem, Israel
+2021 - 2025
 
-Languages:
-- Python
-- C
-- C++
-- Java
-
-Skills:
-- NLP and Machine Learning
-- OOP
-- Operating Systems
-- Algorithms and Data Structures
-- Statistics and Computational Methods
-- Data Science
-
-
-SKILLS
---------------------------------------------------------------------------------
-Languages:
-- JavaScript
-- TypeScript
-- Python
-- SQL
-
-Frontend:
-- React
-- Next.js
-- Tailwind CSS
-- HTML/CSS
-
-Backend:
-- Node.js
-- Express
-- MongoDB
-- PostgreSQL
-- REST APIs
-
-Tools:
-- Git
-- Docker
-- VS Code
-- Postman
-
-AI/ML:
-- OpenAI API
-- Model Fine-tuning
-- Sentiment Analysis
-- LangChain
-
-Other:
-- Agile
-- System Design
-- CI/CD
-
-
-PROJECTS / PORTFOLIO
+EXPERIENCE & PORTFOLIO
 --------------------------------------------------------------------------------
 
-1. MEALCREATOR
-Category: Full-Stack
-Description: A full-stack Progressive Web Application for meal planning and pantry management built with Next.js 14, TypeScript, MongoDB, and React Query, featuring real-time data synchronization and optimized performance.
+MealCreator - Full-Stack React Website
+A full-stack Progressive Website for meal planning and pantry management.
+• Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+
+• TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
 
-Long Description: A full-stack Progressive Web Application for meal planning and pantry management built with Next.js 14, TypeScript, MongoDB, and React Query. Features include real-time data synchronization, PWA with offline support, secure Cloudinary image uploads with automatic optimization, intelligent caching, optimistic UI updates, and a responsive design system deployed on Vercel.
+Technologies: Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
 
-Technologies: Next.js 14, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
-
-Live URL: https://meal-creator-delta.vercel.app/
+Live: https://meal-creator-delta.vercel.app/
 GitHub: https://github.com/NatanelRichey/MealCreator
 
-Highlights:
-- TanStack Query (React Query) with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+
-- End-to-end TypeScript implementation with strict typing across Next.js components, API routes, and Mongoose schemas
-- Progressive Web App (PWA) with offline support and Cloudinary image optimization
-- RESTful backend API using Next.js API Routes with MongoDB connection pooling and serverless deployment on Vercel
 
-
-2. THERABOT - FINE-TUNED AI MODEL
-Category: AI/ML
-Status: Demo Available on Request
-Description: Fine-tuned Llama 3.2 3B using HuggingFace Transformers with LoRA on therapy conversation datasets. Enhanced with RAG retrieval and deployed on HuggingFace Spaces and Google Colab.
-
-Long Description: Fine-tuned Llama 3.2 3B using HuggingFace Transformers with LoRA on therapy conversation datasets, implementing progressive multi-length training, gradient accumulation, and Weights & Biases tracking. Enhanced responses via RAG retrieval (FAISS + E5 embeddings) over the DBT manual. Deployed on HuggingFace Spaces and Google Colab with GPU support.
+TheraBot - Fine-tuned AI Model
+Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.
+• RAG implementation using FAISS vector store with E5 embeddings
+• Weights & Biases experiment tracking and model monitoring
+• Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
 
 Technologies: Python, AI Model Training, LoRA Fine-tuning, NLP, RAG implementation
 
 GitHub: https://github.com/NatanelRichey/therabot
-
-Highlights:
-- LoRA fine-tuning on Llama 3.2 3B
-- RAG implementation using FAISS vector store with E5 embeddings
-- Weights & Biases experiment tracking and model monitoring
-- Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
+Status: Demo Available on Request
 
 
-3. INTERACTIVE CV WEBSITE
-Category: Frontend
-Description: This website! A modern, animated CV built with Next.js, TypeScript, and Framer Motion to showcase development skills.
+Interactive CV Website - Frontend Developer
+A animated CV built with Next.js, TypeScript, and Framer Motion to showcase development skills.
+• TypeScript end-to-end type safety. Next.js App Router with Server Components
+• Framer Motion scroll animations. Theme system with localStorage persistence
 
 Technologies: Next.js, TypeScript, Tailwind CSS, Framer Motion
 
-GitHub: https://github.com/yourusername/cv-website
-
-Highlights:
-- Framer Motion with Intersection Observer API (useInView) for scroll-triggered animations and custom easing functions
-- Next.js 14 App Router with Server Components and optimized font loading (display: swap, preload)
-- TypeScript end-to-end type safety across components, props, and custom hooks with strict mode
-- Reusable ScrollReveal component with directional animations (up/down/left/right) and staggered delays
-- Theme system with localStorage persistence and smooth CSS transitions for dark/light mode
+Live: https://cv-website-navy.vercel.app/
+GitHub: https://github.com/NatanelRichey/cv-website
 
 
-4. WHATSAPP CRAWLER WITH AI SENTIMENT ANALYSIS
-Category: AI/Data
-Description: Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.
+WhatsApp Crawler with AI Sentiment Analysis
+Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.
+• Automated data collection from WhatsApp. Integration with AI sentiment analysis APIs
+• Data visualization and reporting. Privacy-focused architecture
 
-Long Description: A powerful crawler application that extracts WhatsApp message data and performs real-time sentiment analysis using AI APIs. Provides visualizations and insights about conversation patterns and emotional trends.
-
-Technologies: Node.js, OpenAI API, Web Scraping, Data Analysis
+Technologies: OpenAI API, Web Scraping, Data Analysis
 
 GitHub: https://github.com/NatanelRichey/NeedleWhatsappCrawler
 
-Highlights:
-- Automated data collection from WhatsApp
-- Integration with AI sentiment analysis APIs
-- Data visualization and reporting
-- Privacy-focused architecture
 
-
-================================================================================
-END OF CV DATA
-================================================================================
+SKILLS
+--------------------------------------------------------------------------------
+Languages: JavaScript, TypeScript, Python, SQL, C, C++, Java
+Frontend: React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
+Backend: Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
+Tools: Git, Docker, VS Code, Postman, Cloudinary, Vercel
+AI/ML: OpenAI API, Model Fine-tuning, Sentiment Analysis, LangChain, NLP, Machine Learning, LoRA Fine-tuning, RAG implementation, HuggingFace Transformers, Web Scraping, Data Analysis
+Other: OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA
 
