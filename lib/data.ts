@@ -59,11 +59,13 @@ export const education = [
   {
     id: 1,
     institution: "Hebrew University of Jerusalem",
-    degree: "BSc. in Computer Science and Psychology",
+    degree: "BSc. in Computer Science (Double Major in Psychology)",
     location: "Jerusalem, Israel",
-    startDate: "2018",
-    endDate: "2022",
-    description: "Relevant coursework, honors, or achievements",
+    startDate: "2021",
+    endDate: "2025",
+    description: "Graduated with honors in Psychology.",
+    languages: ["Python", "C", "C++", "Java"],
+    skills: ["NLP and Machine Learning", "OOP", "Operating Systems", "Algorithms and Data Structures", "Statistics and Computational Methods", "Data Science"],
   },
   // Add more education entries
 ];
@@ -99,23 +101,6 @@ export const projects = [
     category: "Full-Stack",
   },
   {
-    id: 2,
-    title: "WhatsApp Crawler with AI Sentiment Analysis",
-    description: "Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.",
-    longDescription: "A powerful crawler application that extracts WhatsApp message data and performs real-time sentiment analysis using AI APIs. Provides visualizations and insights about conversation patterns and emotional trends.",
-    technologies: ["Node.js", "OpenAI API", "Web Scraping", "Data Analysis"],
-    image: "/images/whatsapp-crawler.png",
-    video: "/vidoes/whatsapp-crawler.mp4",
-    githubUrl: "https://github.com/NatanelRichey/NeedleWhatsappCrawler",
-    highlights: [
-      "Automated data collection from WhatsApp",
-      "Integration with AI sentiment analysis APIs",
-      "Data visualization and reporting",
-      "Privacy-focused architecture",
-    ],
-    category: "AI/Data",
-  },
-  {
     id: 3,
     title: "TheraBot - Fine-tuned AI Model",
     description: "Fine-tuned Llama 3.2 3B using HuggingFace Transformers with LoRA on therapy conversation datasets. Enhanced with RAG retrieval and deployed on HuggingFace Spaces and Google Colab.",
@@ -148,6 +133,23 @@ export const projects = [
       "Theme system with localStorage persistence and smooth CSS transitions for dark/light mode",
     ],
     category: "Frontend",
+  },
+  {
+    id: 2,
+    title: "WhatsApp Crawler with AI Sentiment Analysis",
+    description: "Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.",
+    longDescription: "A powerful crawler application that extracts WhatsApp message data and performs real-time sentiment analysis using AI APIs. Provides visualizations and insights about conversation patterns and emotional trends.",
+    technologies: ["Node.js", "OpenAI API", "Web Scraping", "Data Analysis"],
+    image: "/images/whatsapp-crawler.png",
+    video: "/vidoes/whatsapp-crawler.mp4",
+    githubUrl: "https://github.com/NatanelRichey/NeedleWhatsappCrawler",
+    highlights: [
+      "Automated data collection from WhatsApp",
+      "Integration with AI sentiment analysis APIs",
+      "Data visualization and reporting",
+      "Privacy-focused architecture",
+    ],
+    category: "AI/Data",
   },
 ];
 

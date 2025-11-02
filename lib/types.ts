@@ -39,7 +39,9 @@ export interface Education {
   location: string;
   startDate: string;
   endDate: string;
-  description: string;
+  description?: string;
+  languages?: string[];
+  skills?: string[];
 }
 
 export interface Skills {

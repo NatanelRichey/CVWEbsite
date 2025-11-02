@@ -34,9 +34,9 @@ export default function Home() {
       {/* Main content sections */}
       <main>
         <Hero />
+        <Education />
         <Portfolio />
         <Skills />
-        <Education />
         <Contact />
       </main>
 
