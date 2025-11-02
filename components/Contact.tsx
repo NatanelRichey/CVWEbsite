@@ -28,8 +28,11 @@ export default function Contact() {
               href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group block"
+              className="relative bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group block"
             >
+              <div className="absolute top-4 right-4 px-3 py-1 bg-foreground/90 text-background rounded-full text-sm">
+                Click me!
+              </div>
               <div className="text-4xl mb-3">✉️</div>
               <h3 className="text-xl font-semibold mb-2">Email</h3>
               <p className="text-foreground/70 group-hover:text-foreground transition-colors">
@@ -42,8 +45,11 @@ export default function Contact() {
           <ScrollReveal delay={0.2}>
             <a
               href={`tel:${personalInfo.phone}`}
-              className="bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group block"
+              className="relative bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group block"
             >
+              <div className="absolute top-4 right-4 px-3 py-1 bg-foreground/90 text-background rounded-full text-sm">
+                Click me!
+              </div>
               <div className="text-4xl mb-3">📱</div>
               <h3 className="text-xl font-semibold mb-2">Phone</h3>
               <p className="text-foreground/70 group-hover:text-foreground transition-colors">
