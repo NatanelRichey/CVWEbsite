@@ -60,7 +60,7 @@ export default function Portfolio() {
             Portfolio
           </h2>
           <p className="text-foreground/60 text-center mb-12 max-w-2xl mx-auto">
-            A selection of projects showcasing my technical skills and problem-solving abilities
+            A selection of projects showcasing my technical skills and self-learning abilities
           </p>
         </ScrollReveal>
 

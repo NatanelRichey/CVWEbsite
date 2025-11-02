@@ -14,7 +14,10 @@ Social Links:
 - LinkedIn: https://www.linkedin.com/in/natanelrichey/
 - GitHub: https://github.com/NatanelRichey
 
-Bio: Passionate developer with expertise in building modern web applications and integrating AI solutions. Currently exploring cutting-edge technologies and building innovative projects.
+Bio: 
+- Fast-learning and hard-working developer with expertise in building modern web applications and integrating AI solutions.
+- Learning something new every day.
+- Currently exploring cutting-edge technologies and building innovative projects.
 
 
 EDUCATION

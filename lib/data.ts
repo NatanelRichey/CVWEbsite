@@ -59,7 +59,7 @@ export const education = [
   {
     id: 1,
     institution: "Hebrew University of Jerusalem",
-    degree: "BSc. in Computer Science (Double Major in Psychology)",
+    degree: "BSc. in Computer Science, B.A. in Psychology (Hons.)",
     location: "Jerusalem, Israel",
     startDate: "2021",
     endDate: "2025",
