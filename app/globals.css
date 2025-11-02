@@ -45,3 +45,16 @@ h1, h2, h3, h4, h5, h6, .font-bold {
   font-family: var(--font-saira), 'Saira', sans-serif;
   font-weight: 600;
 }
+
+/* Prevent font scaling on hover in hero section */
+#home h1,
+#home h1 *,
+#home p {
+  transform: scale(1) !important;
+}
+
+#home h1:hover,
+#home h1:hover *,
+#home p:hover {
+  transform: scale(1) !important;
+}

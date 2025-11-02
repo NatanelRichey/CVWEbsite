@@ -13,13 +13,13 @@ export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // EFFECT: Load theme preference from localStorage on mount
+  // EFFECT: Load theme preference from localStorage on mount (default to light)
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    // Default to light mode (only use dark if explicitly saved)
+    const shouldBeDark = savedTheme === 'dark';
     setIsDark(shouldBeDark);
     
     // Always update the class to match the theme
