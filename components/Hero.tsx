@@ -66,14 +66,16 @@ export default function Hero() {
             >
               {personalInfo.title}
             </motion.p>
-            <motion.p 
-              className="text-lg text-foreground/60 mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              📍 {personalInfo.location}
-            </motion.p>
+            {personalInfo.location && (
+              <motion.p 
+                className="text-lg text-foreground/60 mb-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                📍 {personalInfo.location}
+              </motion.p>
+            )}
             <motion.p 
               className="text-lg text-foreground/80 mb-8 max-w-2xl"
               initial={{ opacity: 0 }}
@@ -127,7 +129,12 @@ export default function Hero() {
               >
                 ✉️ {personalInfo.email}
               </a>
-              <span className="select-none">📱 {personalInfo.phone}</span>
+              <a 
+                href={`tel:${personalInfo.phone}`}
+                className="select-none hover:text-foreground transition-colors"
+              >
+                📱 {personalInfo.phone}
+              </a>
             </motion.div>
           </motion.div>
         </div>

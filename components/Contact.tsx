@@ -25,7 +25,9 @@ export default function Contact() {
           {/* Email */}
           <ScrollReveal delay={0.1}>
             <a
-              href={`mailto:${personalInfo.email}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group block"
             >
               <div className="text-4xl mb-3">✉️</div>

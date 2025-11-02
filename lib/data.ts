@@ -6,7 +6,7 @@
 export const personalInfo = {
   name: "Natanel Richey",
   title: "Full-Stack Developer | AI Enthusiast",
-  location: "Remote - Global",
+  location: "",
   email: "natanelrichey@gmail.com",
   phone: "0584171094",
   bio: "Passionate developer with expertise in building modern web applications and integrating AI solutions. Currently exploring cutting-edge technologies and building innovative projects.",
