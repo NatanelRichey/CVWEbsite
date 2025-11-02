@@ -128,6 +128,21 @@ export const projects = [
     ],
     category: "Frontend",
   },
+  {
+    id: 2,
+    title: "WhatsApp Crawler with AI Sentiment Analysis",
+    description: "Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.",
+    longDescription: "A powerful crawler application that extracts WhatsApp message data and performs real-time sentiment analysis using AI APIs. Provides visualizations and insights about conversation patterns and emotional trends.",
+    technologies: ["Node.js", "OpenAI API", "Web Scraping", "Data Analysis"],
+    image: "/images/whatsapp-crawler.png",
+    video: "/vidoes/whatsapp-crawler.mp4",
+    githubUrl: "https://github.com/NatanelRichey/NeedleWhatsappCrawler",
+    highlights: [
+      "Automated data collection from WhatsApp. Integration with AI sentiment analysis APIs",
+      "Data visualization and reporting. Privacy-focused architecture",
+    ],
+    category: "AI/Data",
+  },
 ];
 
 // Filter categories for portfolio
