@@ -89,7 +89,7 @@ export default function Contact() {
         <ScrollReveal delay={0.3}>
           <div>
             <a
-              href="/resume.pdf"
+              href="/CV.pdf"
               download
               className="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 hover:bg-foreground hover:text-background hover:scale-105 rounded-lg transition-all duration-300 font-medium text-lg border-2 border-foreground/20 hover:border-foreground hover:shadow-lg"
             >
