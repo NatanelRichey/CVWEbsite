@@ -119,10 +119,15 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <a href={`mailto:${personalInfo.email}`} className="hover:text-foreground transition-colors">
+              <a 
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
                 ✉️ {personalInfo.email}
               </a>
-              <span>📱 {personalInfo.phone}</span>
+              <span className="select-none">📱 {personalInfo.phone}</span>
             </motion.div>
           </motion.div>
         </div>

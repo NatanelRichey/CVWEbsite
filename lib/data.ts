@@ -63,7 +63,6 @@ export const education = [
     location: "Jerusalem, Israel",
     startDate: "2021",
     endDate: "2025",
-    description: "Graduated with honors in Psychology.",
     languages: ["Python", "C", "C++", "Java"],
     skills: ["NLP and Machine Learning", "OOP", "Operating Systems", "Algorithms and Data Structures", "Statistics and Computational Methods", "Data Science"],
   },

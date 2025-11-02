@@ -49,12 +49,14 @@ h1, h2, h3, h4, h5, h6, .font-bold {
 /* Prevent font scaling on hover in hero section */
 #home h1,
 #home h1 *,
-#home p {
+#home p,
+#home span {
   transform: scale(1) !important;
 }
 
 #home h1:hover,
 #home h1:hover *,
-#home p:hover {
+#home p:hover,
+#home span:hover {
   transform: scale(1) !important;
 }

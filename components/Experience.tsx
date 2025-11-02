@@ -83,11 +83,6 @@ function EducationCard({ education }: { education: Education }) {
           </div>
         </div>
       )}
-
-      {/* Description */}
-      {education.description && (
-        <p className="text-foreground/80 mb-4">{education.description}</p>
-      )}
     </div>
   );
 }
