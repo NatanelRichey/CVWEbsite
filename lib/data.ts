@@ -5,7 +5,7 @@
 
 export const personalInfo = {
   name: "Natanel Richey",
-  title: "Full-Stack Developer | AI Enthusiast",
+  title: "AI/ML Developer | Full-Stack Developer",
   location: "",
   email: "natanelrichey@gmail.com",
   phone: "0584171094",

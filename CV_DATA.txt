@@ -40,7 +40,7 @@ GitHub: https://github.com/NatanelRichey/therabot
 Status: Demo Available on Request
 
 
-Interactive CV Website - Frontend Developer
+CV Website - Frontend Developement
 A animated CV built with Next.js, TypeScript, and Framer Motion to showcase development skills.
 • TypeScript end-to-end type safety. Next.js App Router with Server Components
 • Framer Motion scroll animations. Theme system with localStorage persistence

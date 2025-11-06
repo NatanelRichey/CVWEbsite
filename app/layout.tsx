@@ -11,7 +11,7 @@ const saira = Saira({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Full-Stack Developer & AI Enthusiast",
+  title: "Natanel Richey - CV",
   description: "Interactive CV showcasing full-stack development projects, AI/ML expertise, and modern web technologies.",
   keywords: ["Full-Stack Developer", "AI", "Machine Learning", "React", "Next.js", "TypeScript"],
   authors: [{ name: "Your Name" }],
