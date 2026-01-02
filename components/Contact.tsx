@@ -94,7 +94,7 @@ export default function Contact() {
         </div>
 
         {/* Download CV Button */}
-        <ScrollReveal delay={0.3}>
+        <ScrollReveal delay={0}>
           <div>
             <a
               href="/CV.pdf"
