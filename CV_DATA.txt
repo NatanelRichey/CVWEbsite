@@ -1,10 +1,30 @@
-Natanel Richey     0584171094     natanelrichey@gmail.com    linkedin
+Natanel Richey
+0584171094 natanelrichey@gmail.com
+Interactive CV Here! https://cv-website-navy.vercel.app/
+https://www.linkedin.com/in/natanelrichey
+https://github.com/NatanelRichey
 
-Software-developer skilled in Python and JavaScript focused on App Design and Machine Learning
 
-Experience in building full-stack websites, training AI models, data analysis (with AI), and collaborating on innovative projects.
+Software-developer skilled in Python and JavaScript focused on Applied Machine Learning and Web/App Design
 
-Fast learning, hard-working, hungry for more and passionate about designing innovative solutions that bridge the gap between human behavior and machine intelligence, applying computational methods to understand complex data while maintaining focus on user-centric design and ethical AI development.
+Experience in training AI models, building full-stack websites, data analysis (AI enhanced).
+
+Methodical and analytical, hard-working and efficient, fast-learning, hungry for excellence and passionate about bridging the gap between human and machine intelligence.
+
+
+EXPERIENCE
+--------------------------------------------------------------------------------
+Machine Learning Engineer
+BabyClue · Full-time
+Nov 2025 - Present · 3 mos
+
+Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
+
+• Developed end-to-end ML evaluation workflows in Python
+• Ran rigorous, comparative model testing using nested CV with fold-level and aggregated analysis (macro/micro F1, per-class precision/recall/F1, confusion matrices, latency) to reliably determine which approaches generalized best across splits
+• Built the full training pipeline combining audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (e.g., MLP, LightGBM, plus classical baselines like SVM/Nearest Centroid where applicable)
+
+Skills: Machine Learning, Data-Centric AI, Hyperparameter Optimization
 
 
 EDUCATION
@@ -14,20 +34,19 @@ BSc. in Computer Science, B.A. in Psychology (Hons.)
 Jerusalem, Israel
 2021 - 2025
 
-EXPERIENCE & PORTFOLIO
+
+SKILLS
 --------------------------------------------------------------------------------
-
-MealCreator - Full-Stack React Website
-A full-stack Progressive Website for meal planning and pantry management.
-• Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+
-• TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
-
-Technologies: Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
-
-Live: https://meal-creator-delta.vercel.app/
-GitHub: https://github.com/NatanelRichey/MealCreator
+Languages: JavaScript, TypeScript, Python, SQL, C, C++, Java
+Frontend: React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
+Backend: Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
+Tools: Git, Docker, Cursor with CLI agents, MCP, skills.md, VS Code, Postman, Cloudinary, Vercel
+AI/ML: OpenAI API, Model Fine-tuning, Sentiment Analysis, LangChain, NLP, Machine Learning, LoRA Fine-tuning, RAG implementation, HuggingFace Transformers, Web Scraping, Data Analysis
+Other: OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA
 
 
+PROJECTS
+--------------------------------------------------------------------------------
 TheraBot - Fine-tuned AI Model
 Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.
 • RAG implementation using FAISS vector store with E5 embeddings
@@ -39,34 +58,12 @@ Technologies: Python, AI Model Training, LoRA Fine-tuning, NLP, RAG implementati
 GitHub: https://github.com/NatanelRichey/therabot
 Status: Demo Available on Request
 
+MealCreator - Full-Stack React Website
+A full-stack Progressive Website for meal planning and pantry management.
+• Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+
+• TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
 
-CV Website - Frontend Developement
-A animated CV built with Next.js, TypeScript, and Framer Motion to showcase development skills.
-• TypeScript end-to-end type safety. Next.js App Router with Server Components
-• Framer Motion scroll animations. Theme system with localStorage persistence
+Technologies: Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
 
-Technologies: Next.js, TypeScript, Tailwind CSS, Framer Motion
-
-Live: https://cv-website-navy.vercel.app/
-GitHub: https://github.com/NatanelRichey/cv-website
-
-
-WhatsApp Crawler with AI Sentiment Analysis
-Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.
-• Automated data collection from WhatsApp. Integration with AI sentiment analysis APIs
-• Data visualization and reporting. Privacy-focused architecture
-
-Technologies: OpenAI API, Web Scraping, Data Analysis
-
-GitHub: https://github.com/NatanelRichey/NeedleWhatsappCrawler
-
-
-SKILLS
---------------------------------------------------------------------------------
-Languages: JavaScript, TypeScript, Python, SQL, C, C++, Java
-Frontend: React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
-Backend: Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
-Tools: Git, Docker, VS Code, Postman, Cloudinary, Vercel
-AI/ML: OpenAI API, Model Fine-tuning, Sentiment Analysis, LangChain, NLP, Machine Learning, LoRA Fine-tuning, RAG implementation, HuggingFace Transformers, Web Scraping, Data Analysis
-Other: OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA
-
+Live: https://meal-creator-delta.vercel.app/
+GitHub: https://github.com/NatanelRichey/MealCreator
