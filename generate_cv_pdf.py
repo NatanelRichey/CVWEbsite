@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Generate CV PDF from CV_DATA.txt using LaTeX (academic style)
 Requires: pdflatex (LaTeX distribution like MiKTeX or TeX Live)
@@ -79,7 +79,7 @@ def parse_cv_data(filename):
         line = lines[i].rstrip('\n')
         line_stripped = line.strip()
         
-        if line_stripped and line_stripped.isupper() and not line_stripped.startswith('---') and not line_stripped.startswith('•'):
+        if line_stripped and line_stripped.isupper() and not line_stripped.startswith('---') and not line_stripped.startswith('ÔÇó'):
             if current_section:
                 body_sections[current_section] = '\n'.join(current_content)
             current_section = line_stripped
@@ -234,8 +234,8 @@ def generate_latex(header, sections):
                     # Stop at next section or "Skills:" line
                     if line.isupper() or line.startswith('Skills:'):
                         break
-                    if line.startswith('•'):
-                        bullet_points.append(line.replace('•', '').strip())
+                    if line.startswith('ÔÇó'):
+                        bullet_points.append(line.replace('ÔÇó', '').strip())
                     else:
                         # Non-bullet text is intro paragraph
                         if not bullet_points:
@@ -311,12 +311,12 @@ def generate_latex(header, sections):
                 i += 1
                 continue
             
-            if i < len(lines) and lines[i].strip() and not lines[i].strip().startswith('•'):
+            if i < len(lines) and lines[i].strip() and not lines[i].strip().startswith('ÔÇó'):
                 title = escape_latex(lines[i].strip())
                 i += 1
                 
                 description = ""
-                if i < len(lines) and not lines[i].strip().startswith('•') and 'Technologies' not in lines[i] and 'GitHub' not in lines[i] and 'Live' not in lines[i] and 'Status' not in lines[i]:
+                if i < len(lines) and not lines[i].strip().startswith('ÔÇó') and 'Technologies' not in lines[i] and 'GitHub' not in lines[i] and 'Live' not in lines[i] and 'Status' not in lines[i]:
                     description = lines[i].strip()
                     i += 1
                 
@@ -329,8 +329,8 @@ def generate_latex(header, sections):
                     if not line:
                         i += 1
                         continue
-                    if line.startswith('•'):
-                        details.append(line.replace('•', '').strip())
+                    if line.startswith('ÔÇó'):
+                        details.append(line.replace('ÔÇó', '').strip())
                         i += 1
                     elif line.startswith('Technologies:'):
                         technologies = line.replace('Technologies:', '').strip()
@@ -435,7 +435,7 @@ def compile_latex_to_pdf(tex_file, output_file):
             print("=" * 60)
             
             if 'package' in output_text.lower() or 'not found' in output_text.lower() or 'missing' in output_text.lower():
-                print("\n⚠️  Missing packages detected!")
+                print("\nÔÜá´©Å  Missing packages detected!")
                 print("MiKTeX needs to install packages. Please run once interactively:")
                 print(f"  {pdflatex_path} cv.tex")
                 print("This will prompt you to install missing packages.")

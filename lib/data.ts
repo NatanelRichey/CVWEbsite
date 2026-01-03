@@ -9,7 +9,7 @@ export const personalInfo = {
   location: "",
   email: "natanelrichey@gmail.com",
   phone: "0584171094",
-  bio: "Software developer skilled in Python and JavaScript focused on Applied Machine Learning and Web/App Design. Experience in training AI models, building full-stack websites, data analysis (AI enhanced). Methodical and analytical, hard-working and efficient, fast-learning, hungry for excellence and passionate about bridging the gap between human and machine intelligence.",
+  bio: "Passionate developer with expertise in building modern web applications and integrating AI solutions. Currently exploring cutting-edge technologies and building innovative projects.",
   // Add your professional photo here later
   profileImage: "/images/profile.jpeg",
 };
@@ -28,16 +28,16 @@ export const experience = [
     id: 1,
     company: "BabyClue",
     position: "Machine Learning Engineer",
-    location: "",
-    startDate: "Nov 2025",
+    location: "Part-time",
+    startDate: "Nov 2024",
     endDate: "Present",
     description: [
-      "Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility",
+      "Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.",
       "Developed end-to-end ML evaluation workflows in Python",
       "Ran rigorous, comparative model testing using nested CV with fold-level and aggregated analysis (macro/micro F1, per-class precision/recall/F1, confusion matrices, latency) to reliably determine which approaches generalized best across splits",
       "Built the full training pipeline combining audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (e.g., MLP, LightGBM, plus classical baselines like SVM/Nearest Centroid where applicable)",
     ],
-    technologies: ["Machine Learning", "Data-Centric AI", "Hyperparameter Optimization", "Python"],
+    technologies: ["Python", "Machine Learning", "Data-Centric AI", "Hyperparameter Optimization"],
   },
   // Add more experiences as needed
 ];
@@ -59,12 +59,12 @@ export const education = [
 
 // Skills organized by category
 export const skills = {
-  languages: ["JavaScript", "TypeScript", "Python", "SQL", "C", "C++", "Java"],
+  languages: ["Python", "JavaScript", "TypeScript", "SQL", "C", "C++", "Java"],
   frontend: ["React", "Next.js", "Tailwind CSS", "HTML/CSS", "Framer Motion"],
   backend: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST APIs", "React Query"],
-  tools: ["Git", "Docker", "Cursor with CLI agents", "MCP", "skills.md", "VS Code", "Postman", "Cloudinary", "Vercel"],
-  aiml: ["OpenAI API", "Model Fine-tuning", "Sentiment Analysis", "LangChain", "NLP", "Machine Learning", "LoRA Fine-tuning", "RAG implementation", "HuggingFace Transformers", "Web Scraping", "Data Analysis"],
-  other: ["OOP", "Operating Systems", "Algorithms and Data Structures", "Statistics and Computational Methods", "Data Science", "PWA"],
+  tools: ["Cursor + CLI, MCP, skills.md", "Git", "Docker", "Postman", "Cloudinary", "Vercel"],
+  aiml: ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace Transformers", "LoRA Fine-tuning", "Hyperparameter Tuning", "RAG implementation", "Model APIs", "NLP", "LangChain", "Sentiment Analysis"],
+  other: ["OOP", "Operating Systems", "Algorithms and Data Structures", "Statistics and Computational Methods", "Data Science", "PWA", "Web Scraping"],
 };
 
 // Portfolio projects - Your showcase pieces!

@@ -15,8 +15,8 @@ Methodical and analytical, hard-working and efficient, fast-learning, hungry for
 EXPERIENCE
 --------------------------------------------------------------------------------
 Machine Learning Engineer
-BabyClue · Full-time
-Nov 2025 - Present · 3 mos
+BabyClue · Part-time
+Nov 2024 - Present
 
 Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
 
@@ -37,12 +37,12 @@ Jerusalem, Israel
 
 SKILLS
 --------------------------------------------------------------------------------
-Languages: JavaScript, TypeScript, Python, SQL, C, C++, Java
+Languages: Python, JavaScript, TypeScript, SQL, C, C++, Java
+Tools: Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel
+AI/ML: TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, Model APIs, NLP, LangChain, Sentiment Analysis
 Frontend: React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
 Backend: Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
-Tools: Git, Docker, Cursor with CLI agents, MCP, skills.md, VS Code, Postman, Cloudinary, Vercel
-AI/ML: OpenAI API, Model Fine-tuning, Sentiment Analysis, LangChain, NLP, Machine Learning, LoRA Fine-tuning, RAG implementation, HuggingFace Transformers, Web Scraping, Data Analysis
-Other: OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA
+Other: OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA, Web Scraping
 
 
 PROJECTS

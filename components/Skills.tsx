@@ -10,10 +10,10 @@ export default function Skills() {
   // Create an array of skill categories with their labels
   const skillCategories = [
     { label: 'Languages', skills: skills.languages, icon: '💻' },
+    { label: 'Tools', skills: skills.tools, icon: '🛠️' },
+    { label: 'AI/ML', skills: skills.aiml, icon: '🤖' },
     { label: 'Frontend', skills: skills.frontend, icon: '🎨' },
     { label: 'Backend', skills: skills.backend, icon: '⚙️' },
-    { label: 'AI/ML', skills: skills.aiml, icon: '🤖' },
-    { label: 'Tools', skills: skills.tools, icon: '🛠️' },
     { label: 'Other', skills: skills.other, icon: '📚' },
   ];
 
