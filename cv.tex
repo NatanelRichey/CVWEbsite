@@ -1,0 +1,91 @@
+\documentclass[10.5pt]{article}
+\usepackage[margin=0.45in, top=0.4in, bottom=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{tabularx}
+
+% Balanced spacing
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+
+% List spacing with proper gaps between items
+\setlist{leftmargin=1.5em, topsep=3pt, itemsep=3pt, parsep=1pt}
+
+% Custom commands for formatting
+\newcommand{\cvsection}[1]{
+    \vspace{0.1in}
+    \noindent{\large \textbf{#1}}
+    \vspace{0.03in}
+    \hrule
+    \vspace{0.06in}
+}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Natanel Richey}}\\
+    \vspace{0.08in}
+    0584171094 natanelrichey@gmail.com\\
+    \vspace{0.03in}
+    \href{https://cv-website-navy.vercel.app/}{Portfolio} $|$ \href{https://www.linkedin.com/in/natanelrichey}{LinkedIn} $|$ \href{https://github.com/NatanelRichey}{GitHub}
+    \vspace{0.05in}
+\end{center}
+
+\vspace{0.08in}
+\noindent{\large \textbf{Summary}}
+\vspace{0.06in}
+
+\noindent Software-developer skilled in Python and JavaScript focused on Applied Machine Learning and Web/App Design Experience in training AI models, building full-stack websites, data analysis (AI enhanced). Methodical and analytical, hard-working and efficient, fast-learning, hungry for excellence and passionate about bridging the gap between human and machine intelligence.
+
+\cvsection{Professional Experience}
+\noindent\textbf{Machine Learning Engineer, BabyClue · Part-time} \hfill Nov 2024 - Present\\
+Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
+
+\begin{itemize}
+    \item Developed end-to-end ML evaluation workflows in Python
+    \item Ran rigorous, comparative model testing using nested CV with fold-level and aggregated analysis (macro/micro F1, per-class precision/recall/F1, confusion matrices, latency) to reliably determine which approaches generalized best across splits
+    \item Built the full training pipeline combining audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (e.g., MLP, LightGBM, plus classical baselines like SVM/Nearest Centroid where applicable)
+\end{itemize}
+
+\cvsection{Education}
+\noindent\textbf{BSc. in Computer Science, B.A. in Psychology (Hons.)} \hfill 2021 - 2025\\
+Hebrew University of Jerusalem, Jerusalem, Israel
+
+\cvsection{Technical Skills}
+\begin{itemize}
+    \item \textbf{Languages:} Python, JavaScript, TypeScript, SQL, C, C++, Java
+    \item \textbf{Tools:} Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel
+    \item \textbf{AI/ML:} TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, Model APIs, NLP, LangChain, Sentiment Analysis
+    \item \textbf{Frontend:} React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
+    \item \textbf{Backend:} Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
+    \item \textbf{Other:} OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA, Web Scraping
+\end{itemize}
+
+\cvsection{Projects}
+\noindent\textbf{TheraBot - Fine-tuned AI Model} (Python, AI Model Training, LoRA Fine-tuning, NLP, RAG implementation) -- \href{https://github.com/NatanelRichey/therabot}{GitHub} $|$ Demo Available on Request\\
+Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.
+
+\begin{itemize}
+    \item RAG implementation using FAISS vector store with E5 embeddings
+    \item Weights \& Biases experiment tracking and model monitoring
+    \item Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
+\end{itemize}
+
+\noindent\textbf{MealCreator - Full-Stack React Website} (Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA) -- \href{https://meal-creator-delta.vercel.app/}{Live} $|$ \href{https://github.com/NatanelRichey/MealCreator}{GitHub}\\
+A full-stack Progressive Website for meal planning and pantry management.
+
+\begin{itemize}
+    \item Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80\%+
+    \item TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
+\end{itemize}
+
+\end{document}

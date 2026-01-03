@@ -79,7 +79,7 @@ def parse_cv_data(filename):
         line = lines[i].rstrip('\n')
         line_stripped = line.strip()
         
-        if line_stripped and line_stripped.isupper() and not line_stripped.startswith('---') and not line_stripped.startswith('ÔÇó'):
+        if line_stripped and line_stripped.isupper() and not line_stripped.startswith('---') and not line_stripped.startswith('•'):
             if current_section:
                 body_sections[current_section] = '\n'.join(current_content)
             current_section = line_stripped
@@ -100,7 +100,7 @@ def generate_latex(header, sections):
     """Generate LaTeX code from parsed CV data"""
     
     latex = """\\documentclass[10.5pt]{article}
-\\usepackage[margin=0.5in, top=0.45in, bottom=0.45in]{geometry}
+\\usepackage[margin=0.45in, top=0.4in, bottom=0.4in]{geometry}
 \\usepackage{enumitem}
 \\usepackage{hyperref}
 \\usepackage{url}
@@ -110,8 +110,8 @@ def generate_latex(header, sections):
 \\setlength{\\parskip}{3pt}
 \\setlength{\\parindent}{0pt}
 
-% Compact but readable list spacing
-\\setlist{nosep, leftmargin=1.5em, topsep=3pt, itemsep=2pt}
+% List spacing with proper gaps between items
+\\setlist{leftmargin=1.5em, topsep=3pt, itemsep=3pt, parsep=1pt}
 
 % Custom commands for formatting
 \\newcommand{\\cvsection}[1]{
@@ -234,8 +234,8 @@ def generate_latex(header, sections):
                     # Stop at next section or "Skills:" line
                     if line.isupper() or line.startswith('Skills:'):
                         break
-                    if line.startswith('ÔÇó'):
-                        bullet_points.append(line.replace('ÔÇó', '').strip())
+                    if line.startswith('•'):
+                        bullet_points.append(line.replace('•', '').strip())
                     else:
                         # Non-bullet text is intro paragraph
                         if not bullet_points:
@@ -250,12 +250,12 @@ def generate_latex(header, sections):
                     latex += f"{escape_latex(intro)}\n"
                 
                 if bullet_points:
-                    latex += "\\begin{itemize}\n"
+                    latex += "\n\\begin{itemize}\n"
                     for bp in bullet_points:
                         latex += f"    \\item {escape_latex(bp)}\n"
                     latex += "\\end{itemize}\n"
                 
-                latex += "\\vspace{0.06in}\n"
+                latex += "\n"
             else:
                 i += 1
     
@@ -311,12 +311,12 @@ def generate_latex(header, sections):
                 i += 1
                 continue
             
-            if i < len(lines) and lines[i].strip() and not lines[i].strip().startswith('ÔÇó'):
+            if i < len(lines) and lines[i].strip() and not lines[i].strip().startswith('•'):
                 title = escape_latex(lines[i].strip())
                 i += 1
                 
                 description = ""
-                if i < len(lines) and not lines[i].strip().startswith('ÔÇó') and 'Technologies' not in lines[i] and 'GitHub' not in lines[i] and 'Live' not in lines[i] and 'Status' not in lines[i]:
+                if i < len(lines) and not lines[i].strip().startswith('•') and 'Technologies' not in lines[i] and 'GitHub' not in lines[i] and 'Live' not in lines[i] and 'Status' not in lines[i]:
                     description = lines[i].strip()
                     i += 1
                 
@@ -329,8 +329,8 @@ def generate_latex(header, sections):
                     if not line:
                         i += 1
                         continue
-                    if line.startswith('ÔÇó'):
-                        details.append(line.replace('ÔÇó', '').strip())
+                    if line.startswith('•'):
+                        details.append(line.replace('•', '').strip())
                         i += 1
                     elif line.startswith('Technologies:'):
                         technologies = line.replace('Technologies:', '').strip()
@@ -364,12 +364,12 @@ def generate_latex(header, sections):
                 if description:
                     latex += f"{escape_latex(description)}\n"
                 if details:
-                    latex += "\\begin{itemize}\n"
+                    latex += "\n\\begin{itemize}\n"
                     for d in details:
                         latex += f"    \\item {escape_latex(d)}\n"
                     latex += "\\end{itemize}\n"
                 
-                latex += "\\vspace{0.06in}\n"
+                latex += "\n"
             else:
                 i += 1
     
