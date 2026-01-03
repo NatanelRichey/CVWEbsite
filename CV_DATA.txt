@@ -1,5 +1,5 @@
 Natanel Richey
-0584171094 natanelrichey@gmail.com
+0584171094 natanaelrichey.work@gmail.com
 Interactive CV Here! https://cv-website-navy.vercel.app/
 https://www.linkedin.com/in/natanelrichey
 https://github.com/NatanelRichey
@@ -65,5 +65,5 @@ A full-stack Progressive Website for meal planning and pantry management.
 
 Technologies: Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
 
-Live: https://meal-creator-delta.vercel.app/
 GitHub: https://github.com/NatanelRichey/MealCreator
+Status: Demo Available on Request

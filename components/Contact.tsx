@@ -25,7 +25,7 @@ export default function Contact() {
           {/* Email */}
           <ScrollReveal delay={0.1}>
             <a
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}`}
+              href={`mailto:${personalInfo.email}`}
               target="_blank"
               rel="noopener noreferrer"
               className="relative bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group block"
@@ -94,7 +94,7 @@ export default function Contact() {
         </div>
 
         {/* Download CV Button */}
-        <ScrollReveal delay={0}>
+        <ScrollReveal delay={0.3}>
           <div>
             <a
               href="/CV.pdf"

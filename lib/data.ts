@@ -7,7 +7,7 @@ export const personalInfo = {
   name: "Natanel Richey",
   title: "AI/ML Developer | Full-Stack Developer",
   location: "",
-  email: "natanelrichey@gmail.com",
+  email: "natanaelrichey.work@gmail.com",
   phone: "0584171094",
   bio: "Passionate developer with expertise in building modern web applications and integrating AI solutions. Currently exploring cutting-edge technologies and building innovative projects.",
   // Add your professional photo here later
@@ -77,8 +77,8 @@ export const projects = [
     technologies: ["Next.js", "TypeScript", "MongoDB", "React Query", "Cloudinary", "Vercel", "PWA"],
     image: "/images/mealcreator.png",
     video: "/vidoes/mealcreator.mp4",
-    liveUrl: "https://meal-creator-delta.vercel.app/",
     githubUrl: "https://github.com/NatanelRichey/MealCreator",
+    status: "Demo Available on Request",
     highlights: [
       "Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+",
       "TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas",
