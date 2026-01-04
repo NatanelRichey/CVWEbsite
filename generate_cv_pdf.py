@@ -316,13 +316,27 @@ def generate_latex(header, sections):
                 i += 1
                 
                 description = ""
+                github_demo_line = ""
+                # Get description (skip empty lines)
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
                 if i < len(lines) and not lines[i].strip().startswith('•') and 'Technologies' not in lines[i] and 'GitHub' not in lines[i] and 'Live' not in lines[i] and 'Status' not in lines[i]:
                     description = lines[i].strip()
                     i += 1
                 
+                # Get GitHub | Demo line (skip empty lines)
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
+                if i < len(lines) and 'GitHub' in lines[i] and 'Demo available' in lines[i]:
+                    github_demo_line = lines[i].strip()
+                    i += 1
+                    
+                # Skip empty line after GitHub|Demo line
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
+                
                 details = []
                 technologies = ""
-                links_text = []
                 
                 while i < len(lines):
                     line = lines[i].strip()
@@ -335,41 +349,37 @@ def generate_latex(header, sections):
                     elif line.startswith('Technologies:'):
                         technologies = line.replace('Technologies:', '').strip()
                         i += 1
-                    elif line.startswith('GitHub:'):
-                        url_match = re.search(r'(https?://[^\s]+)', line)
-                        if url_match:
-                            links_text.append(f"\\href{{{url_match.group(1)}}}{{GitHub}}")
-                        i += 1
-                    elif line.startswith('Live:'):
-                        url_match = re.search(r'(https?://[^\s]+)', line)
-                        if url_match:
-                            links_text.append(f"\\href{{{url_match.group(1)}}}{{Live}}")
-                        i += 1
-                    elif line.startswith('Status:'):
-                        links_text.append(line.replace('Status:', '').strip())
-                        i += 1
                     else:
                         break
                 
-                # Format project entry - compact
-                tech_str = escape_latex(technologies) if technologies else ""
-                latex += f"\\noindent\\textbf{{{title}}}"
-                if tech_str:
-                    latex += f" ({tech_str})"
-                if links_text:
-                    latex += " -- " + " $|$ ".join(links_text)
-                latex += "\\\\\n"
+                # Format project entry - title only
+                latex += f"\\noindent\\textbf{{{title}}}\\\\\n"
                 
-                # Description and details - compact
+                # Description
                 if description:
-                    latex += f"{escape_latex(description)}\n"
+                    latex += f"{escape_latex(description)}\\\\\n"
+                
+                # GitHub | Demo line (on a new line after description)
+                if github_demo_line:
+                    # Extract GitHub URL and demo text
+                    github_match = re.search(r'GitHub:\s*(https?://[^\s|]+)', github_demo_line)
+                    demo_match = re.search(r'\|\s*(Demo available upon request)', github_demo_line)
+                    
+                    if github_match and demo_match:
+                        github_url = github_match.group(1)
+                        demo_text = demo_match.group(1)
+                        latex += f"\\href{{{github_url}}}{{GitHub}} $|$ {escape_latex(demo_text)}\n"
+                    else:
+                        # Fallback: just escape the whole line
+                        latex += f"{escape_latex(github_demo_line)}\n"
                 if details:
-                    latex += "\n\\begin{itemize}\n"
+                    latex += "\\vspace{0.5em}\\begin{itemize}[topsep=0pt, itemsep=3pt, parsep=0pt, partopsep=0pt]\n"
                     for d in details:
                         latex += f"    \\item {escape_latex(d)}\n"
                     latex += "\\end{itemize}\n"
                 
-                latex += "\n"
+                # Full empty line between projects
+                latex += "\\vspace{1em}\n"
             else:
                 i += 1
     
@@ -415,6 +425,7 @@ def compile_latex_to_pdf(tex_file, output_file):
         print(f"Using pdflatex at: {pdflatex_path}")
     
     try:
+        # Compile in current directory first, then move to desired location
         # First run: allow package installation
         print("Compiling LaTeX (first pass - may install packages)...")
         result = subprocess.run(
@@ -457,7 +468,7 @@ def compile_latex_to_pdf(tex_file, output_file):
             print(result2.stderr[:500])  # Show first 500 chars
         
         # Clean up auxiliary files
-        base_name = tex_file.replace('.tex', '')
+        base_name = os.path.splitext(tex_file)[0]
         for ext in ['.aux', '.log', '.out']:
             aux_file = base_name + ext
             if os.path.exists(aux_file):
@@ -466,12 +477,18 @@ def compile_latex_to_pdf(tex_file, output_file):
                 except:
                     pass
         
+        # PDF is created in current directory
         pdf_file = base_name + '.pdf'
         if os.path.exists(pdf_file):
-            # On Windows, file names are case-insensitive, so cv.pdf == CV.pdf
-            if pdf_file.lower() != output_file.lower():
-                shutil.copy(pdf_file, output_file)
-            print(f"PDF successfully created: {pdf_file}")
+            # Move to desired output location
+            output_dir = os.path.dirname(output_file) if os.path.dirname(output_file) else '.'
+            if output_dir and not os.path.exists(output_dir):
+                os.makedirs(output_dir)
+            if os.path.abspath(pdf_file).lower() != os.path.abspath(output_file).lower():
+                if os.path.exists(output_file):
+                    os.remove(output_file)
+                shutil.move(pdf_file, output_file)
+            print(f"PDF successfully created: {output_file}")
             return True
         return False
     except FileNotFoundError as e:
@@ -529,18 +546,15 @@ if __name__ == '__main__':
     
     print(f"LaTeX file generated: {tex_file}")
     
-    # Compile to PDF
-    output_pdf = 'CV.pdf'
-    if compile_latex_to_pdf(tex_file, output_pdf):
-        print(f"PDF generated successfully: {output_pdf}")
-        
-        # Copy to public folder
-        public_pdf = 'public/CV.pdf'
-        shutil.copy(output_pdf, public_pdf)
-        print(f"Also copied to {public_pdf}")
+    # Compile to PDF directly in public folder
+    public_pdf = 'public/CV.pdf'
+    # Ensure public directory exists
+    os.makedirs('public', exist_ok=True)
+    if compile_latex_to_pdf(tex_file, public_pdf):
+        print(f"PDF generated successfully: {public_pdf}")
         
         # Open in Chrome
-        pdf_path = os.path.abspath(output_pdf)
+        pdf_path = os.path.abspath(public_pdf)
         print(f"Opening PDF in Chrome: {pdf_path}")
         open_pdf_in_chrome(pdf_path)
     else:

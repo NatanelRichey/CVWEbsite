@@ -9,7 +9,7 @@ export const personalInfo = {
   location: "",
   email: "natanaelrichey.work@gmail.com",
   phone: "0584171094",
-  bio: "Passionate developer with expertise in building modern web applications and integrating AI solutions. Currently exploring cutting-edge technologies and building innovative projects.",
+  bio: "Software-developer skilled in Python and JavaScript focused on Applied Machine Learning and Web/App Design. Experience in training AI models, building full-stack websites, data analysis (AI enhanced). Methodical and analytical, hard-working and efficient, fast-learning, hungry for excellence and passionate about bridging the gap between human and machine intelligence.",
   // Add your professional photo here later
   profileImage: "/images/profile.jpeg",
 };

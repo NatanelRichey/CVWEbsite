@@ -11,20 +11,15 @@ const saira = Saira({
 });
 
 export const metadata: Metadata = {
-  title: "Natanel Richey - AI/ML Developer",
+  title: "Natanel Richey - CV",
   description: "Interactive CV showcasing full-stack development projects, AI/ML expertise, and modern web technologies.",
   keywords: ["Full-Stack Developer", "AI", "Machine Learning", "React", "Next.js", "TypeScript"],
-  authors: [{ name: "Natanel Richey" }],
-  creator: "Natanel Richey",
+  authors: [{ name: "Your Name" }],
+  creator: "Your Name",
   openGraph: {
-    title: "Natanel Richey - AI/ML Developer",
+    title: "Your Name - Full-Stack Developer",
     description: "Interactive CV showcasing full-stack development projects and AI/ML expertise",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Natanel Richey - AI/ML Developer",
-    description: "Interactive CV showcasing full-stack development projects and AI/ML expertise",
   },
   robots: {
     index: true,

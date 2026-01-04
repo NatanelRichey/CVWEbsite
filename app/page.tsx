@@ -6,8 +6,7 @@
 // Import all our components
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import ExperienceSection from '@/components/Experience';
-import Education from '@/components/Education';
+import Education from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
@@ -35,10 +34,9 @@ export default function Home() {
       {/* Main content sections */}
       <main>
         <Hero />
-        <ExperienceSection />
         <Education />
-        <Skills />
         <Portfolio />
+        <Skills />
         <Contact />
       </main>
 

@@ -49,21 +49,19 @@ PROJECTS
 --------------------------------------------------------------------------------
 TheraBot - Fine-tuned AI Model
 Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.
+GitHub: https://github.com/NatanelRichey/therabot | Demo available upon request
+
 • RAG implementation using FAISS vector store with E5 embeddings
 • Weights & Biases experiment tracking and model monitoring
 • Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
 
 Technologies: Python, AI Model Training, LoRA Fine-tuning, NLP, RAG implementation
 
-GitHub: https://github.com/NatanelRichey/therabot
-Status: Demo Available on Request
-
 MealCreator - Full-Stack React Website
 A full-stack Progressive Website for meal planning and pantry management.
+GitHub: https://github.com/NatanelRichey/MealCreator | Demo available upon request
+
 • Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+
 • TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
 
 Technologies: Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
-
-GitHub: https://github.com/NatanelRichey/MealCreator
-Status: Demo Available on Request
