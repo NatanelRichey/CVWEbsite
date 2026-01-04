@@ -152,12 +152,12 @@ def generate_latex(header, sections):
                 continue
             
             if line.startswith('http'):
-                if 'cv-website' in line or 'Interactive CV' in line.lower():
-                    links['Portfolio'] = line
-                elif 'linkedin' in line.lower():
+                if 'linkedin' in line.lower():
                     links['LinkedIn'] = line
                 elif 'github' in line.lower():
                     links['GitHub'] = line
+                elif 'natanel-richey.space' in line or 'portfolio' in line.lower() or 'website' in line.lower():
+                    links['Portfolio'] = line
             elif 'Interactive CV' in line or 'interactive cv' in line.lower():
                 url_match = re.search(r'(https?://[^\s]+)', line)
                 if url_match:

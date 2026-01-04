@@ -29,7 +29,7 @@ export const experience = [
     company: "BabyClue",
     position: "Machine Learning Engineer",
     location: "Part-time",
-    startDate: "Nov 2024",
+    startDate: "Nov 2025",
     endDate: "Present",
     description: [
       "Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.",

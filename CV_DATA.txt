@@ -16,7 +16,7 @@ EXPERIENCE
 --------------------------------------------------------------------------------
 Machine Learning Engineer
 BabyClue · Part-time
-Nov 2024 - Present
+Nov 2025 - Present
 
 Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
 
