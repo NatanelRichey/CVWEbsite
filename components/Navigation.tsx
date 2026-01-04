@@ -20,6 +20,7 @@ export default function Navigation() {
   // Array of navigation links
   const navItems = [
     { name: 'Home', href: '#home' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Education', href: '#education' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Skills', href: '#skills' },

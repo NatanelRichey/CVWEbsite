@@ -1,32 +1,32 @@
 // ==============================================
-// EDUCATION SECTION COMPONENT
+// EXPERIENCE SECTION COMPONENT
 // ==============================================
-// Displays education background
+// Displays professional work experience
 
-import { education } from '@/lib/data';
-import type { Education } from '@/lib/types';
+import { experience } from '@/lib/data';
+import type { Experience } from '@/lib/types';
 import ScrollReveal from './ScrollReveal';
 
-export default function Education() {
+export default function Experience() {
   return (
-    <section id="education" className="py-20 px-4">
+    <section id="experience" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <ScrollReveal>
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-            Education
+            Professional Experience
           </h2>
         </ScrollReveal>
 
-        {/* Education Container */}
+        {/* Experience Container */}
         <div className="flex justify-center">
           <div className="w-full max-w-3xl space-y-8">
-            {education.map((edu, index) => (
+            {experience.map((exp, index) => (
               <ScrollReveal 
-                key={edu.id}
+                key={exp.id}
                 delay={index * 0.1}
               >
-                <EducationCard education={edu} />
+                <ExperienceCard experience={exp} />
               </ScrollReveal>
             ))}
           </div>
@@ -36,48 +36,44 @@ export default function Education() {
   );
 }
 
-// Separate component for each education card
-function EducationCard({ education }: { education: Education }) {
+// Separate component for each experience card
+function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <div className="bg-foreground/5 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       {/* Date Range */}
       <div className="text-sm text-foreground/60 mb-2">
-        {education.startDate} - {education.endDate}
+        {experience.startDate} - {experience.endDate}
       </div>
 
-      {/* Degree */}
-      <h3 className="text-2xl font-bold mb-1">{education.degree}</h3>
-      <p className="text-lg text-foreground/70 mb-1">{education.institution}</p>
-      <p className="text-sm text-foreground/60 mb-4">📍 {education.location}</p>
+      {/* Position and Company */}
+      <h3 className="text-2xl font-bold mb-1">{experience.position}</h3>
+      <p className="text-lg text-foreground/70 mb-1">{experience.company}</p>
+      <p className="text-sm text-foreground/60 mb-4">📍 {experience.location}</p>
 
-      {/* Languages */}
-      {education.languages && education.languages.length > 0 && (
+      {/* Description */}
+      {experience.description && experience.description.length > 0 && (
         <div className="mb-4">
-          <p className="text-sm font-semibold mb-2 text-foreground/80">Languages:</p>
-          <div className="flex flex-wrap gap-2">
-            {education.languages.map((language) => (
-              <span
-                key={language}
-                className="px-3 py-1 bg-foreground/10 rounded-full text-sm"
-              >
-                {language}
-              </span>
+          <ul className="list-disc list-inside space-y-2 text-foreground/80">
+            {experience.description.map((desc, index) => (
+              <li key={index} className="text-sm">
+                {desc}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       )}
 
-      {/* Skills */}
-      {education.skills && education.skills.length > 0 && (
-        <div className="mb-4">
-          <p className="text-sm font-semibold mb-2 text-foreground/80">Skills:</p>
+      {/* Technologies */}
+      {experience.technologies && experience.technologies.length > 0 && (
+        <div>
+          <p className="text-sm font-semibold mb-2 text-foreground/80">Technologies:</p>
           <div className="flex flex-wrap gap-2">
-            {education.skills.map((skill) => (
+            {experience.technologies.map((tech) => (
               <span
-                key={skill}
+                key={tech}
                 className="px-3 py-1 bg-foreground/10 rounded-full text-sm"
               >
-                {skill}
+                {tech}
               </span>
             ))}
           </div>
@@ -86,4 +82,3 @@ function EducationCard({ education }: { education: Education }) {
     </div>
   );
 }
-
