@@ -18,7 +18,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-foreground/5">
+    <section id="skills" className="py-12 px-4 bg-foreground/5">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <ScrollReveal>

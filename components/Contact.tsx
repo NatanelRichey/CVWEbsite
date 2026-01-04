@@ -8,7 +8,7 @@ import ScrollReveal from './ScrollReveal';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-4 bg-foreground/5">
+    <section id="contact" className="py-12 px-4 bg-foreground/5">
       <div className="max-w-4xl mx-auto text-center">
         {/* Section Header */}
         <ScrollReveal>
@@ -21,7 +21,7 @@ export default function Contact() {
         </ScrollReveal>
 
         {/* Contact Methods */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Email */}
           <ScrollReveal delay={0.1}>
             <a
@@ -57,10 +57,30 @@ export default function Contact() {
               </p>
             </a>
           </ScrollReveal>
+
+          {/* Download CV Button */}
+          <ScrollReveal delay={0.3}>
+            <a
+              href="/CV.pdf"
+              download
+              className="relative bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center justify-center h-full"
+            >
+              <div className="absolute top-4 right-4 px-3 py-1 bg-foreground/90 text-background rounded-full text-sm">
+                Click me!
+              </div>
+              <svg className="w-8 h-8 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 className="text-xl font-semibold mb-2">Download CV</h3>
+              <p className="text-foreground/70 group-hover:text-foreground transition-colors text-sm">
+                PDF Format
+              </p>
+            </a>
+          </ScrollReveal>
         </div>
 
         {/* Social Links */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4">
           {socialLinks.linkedin && (
             <a
               href={socialLinks.linkedin}
@@ -92,25 +112,6 @@ export default function Contact() {
             </a>
           )}
         </div>
-
-        {/* Download CV Button */}
-        <ScrollReveal delay={0.3}>
-          <div>
-            <a
-              href="/CV.pdf"
-              download
-              className="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 hover:bg-foreground hover:text-background hover:scale-105 rounded-lg transition-all duration-300 font-medium text-lg border-2 border-foreground/20 hover:border-foreground hover:shadow-lg"
-            >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Download CV (PDF)
-          </a>
-          <p className="text-sm text-foreground/50 mt-3">
-            Traditional format for your records
-          </p>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );

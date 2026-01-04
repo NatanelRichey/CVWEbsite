@@ -9,7 +9,7 @@ import ScrollReveal from './ScrollReveal';
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="experience" className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <ScrollReveal>

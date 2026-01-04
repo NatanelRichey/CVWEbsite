@@ -52,7 +52,7 @@ export default function Portfolio() {
     : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="portfolio" className="py-20 px-4" ref={sectionRef}>
+    <section id="portfolio" className="py-12 px-4" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <ScrollReveal>
