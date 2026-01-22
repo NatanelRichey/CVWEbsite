@@ -14,10 +14,10 @@ export const metadata: Metadata = {
   title: "Natanel Richey - CV",
   description: "Interactive CV showcasing full-stack development projects, AI/ML expertise, and modern web technologies.",
   keywords: ["Full-Stack Developer", "AI", "Machine Learning", "React", "Next.js", "TypeScript"],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
+  authors: [{ name: "Natanel Richey" }],
+  creator: "Natanel Richey",
   openGraph: {
-    title: "Your Name - Full-Stack Developer",
+    title: "Natanel Richey - Software Engineer",
     description: "Interactive CV showcasing full-stack development projects and AI/ML expertise",
     type: "website",
   },
