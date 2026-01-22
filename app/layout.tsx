@@ -20,6 +20,22 @@ export const metadata: Metadata = {
     title: "Natanel Richey - Software Engineer",
     description: "Interactive CV showcasing full-stack development projects and AI/ML expertise",
     type: "website",
+    url: "https://natanel-richey.space",
+    siteName: "Natanel Richey CV",
+    images: [
+      {
+        url: "/images/profile.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Natanel Richey - Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Natanel Richey - Software Engineer",
+    description: "Interactive CV showcasing full-stack development projects and AI/ML expertise",
+    images: ["/images/profile.jpeg"],
   },
   robots: {
     index: true,
