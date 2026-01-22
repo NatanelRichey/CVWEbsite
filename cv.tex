@@ -1,24 +1,24 @@
 \documentclass[10.5pt]{article}
-\usepackage[margin=0.45in, top=0.4in, bottom=0.4in]{geometry}
+\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{tabularx}
 
 % Balanced spacing
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{2pt}
 \setlength{\parindent}{0pt}
 
 % List spacing with proper gaps between items
-\setlist{leftmargin=1.5em, topsep=3pt, itemsep=3pt, parsep=1pt}
+\setlist{leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt}
 
 % Custom commands for formatting
 \newcommand{\cvsection}[1]{
     \vspace{0.1in}
     \noindent{\large \textbf{#1}}
-    \vspace{0.03in}
+    \vspace{0.02in}
     \hrule
-    \vspace{0.06in}
+    \vspace{0.04in}
 }
 
 % Hyperlink setup
@@ -33,36 +33,39 @@
 
 \begin{center}
     {\huge \textbf{Natanel Richey}}\\
-    \vspace{0.08in}
-    0584171094 natanaelrichey.work@gmail.com\\
-    \vspace{0.03in}
-    \href{https://natanel-richey.space}{Portfolio} $|$ \href{https://www.linkedin.com/in/natanelrichey}{LinkedIn} $|$ \href{https://github.com/NatanelRichey}{GitHub}
     \vspace{0.05in}
+    0584171094 natanaelrichey.work@gmail.com\\
+    \vspace{0.02in}
+    \href{https://natanel-richey.space}{Portfolio} $|$ \href{https://www.linkedin.com/in/natanelrichey}{LinkedIn} $|$ \href{https://github.com/NatanelRichey}{GitHub}
+    \vspace{0.03in}
 \end{center}
 
-\vspace{0.08in}
+\vspace{0.05in}
 \noindent{\large \textbf{Summary}}
-\vspace{0.06in}
+\vspace{0.04in}
 
 \noindent Software-developer skilled in Python and JavaScript focused on Applied Machine Learning and Web/App Design Experience in training AI models, building full-stack websites, data analysis (AI enhanced). Methodical and analytical, hard-working and efficient, fast-learning, hungry for excellence and passionate about bridging the gap between human and machine intelligence.
 
 \cvsection{Professional Experience}
-\noindent\textbf{Machine Learning Engineer, BabyClue · Part-time} \hfill Nov 2025 - Present\\
+\noindent\textbf{Machine Learning Engineer, BabyClue} \hfill Nov 2025 - Present\\
 Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
 
-\begin{itemize}
+\begin{itemize}[topsep=2pt, itemsep=2pt]
     \item Developed end-to-end ML evaluation workflows in Python
     \item Ran rigorous, comparative model testing using nested CV with fold-level and aggregated analysis (macro/micro F1, per-class precision/recall/F1, confusion matrices, latency) to reliably determine which approaches generalized best across splits
     \item Built the full training pipeline combining audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (e.g., MLP, LightGBM, plus classical baselines like SVM/Nearest Centroid where applicable)
     \item Engineered prompt variants for LLM classification (Chain-of-Thought, Tree-of-Thought variants), systematically compared API responses across providers, evaluating reasoning quality, and refining prompt structure and routing logic to reduce token costs while refining performance
 \end{itemize}
 
+\vspace{0.3em}
+\noindent\textbf{Founder, Even Pinah Services} \quad \href{https://evenpinah.services/}{https://evenpinah.services/} \hfill June 2025 - Present
+
 \cvsection{Education}
 \noindent\textbf{BSc. in Computer Science, B.A. in Psychology (Hons.)} \hfill 2021 - 2025\\
 Hebrew University of Jerusalem, Jerusalem, Israel
 
 \cvsection{Technical Skills}
-\begin{itemize}
+\begin{itemize}[topsep=2pt, itemsep=2pt]
     \item \textbf{Languages:} Python, JavaScript, TypeScript, SQL, C, C++, Java
     \item \textbf{Tools:} Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel
     \item \textbf{AI/ML:} TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, Model APIs, NLP, LangChain, Sentiment Analysis
@@ -75,18 +78,18 @@ Hebrew University of Jerusalem, Jerusalem, Israel
 \noindent\textbf{TheraBot - Fine-tuned AI Model}\\
 Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.\\
 \href{https://github.com/NatanelRichey/therabot}{GitHub} $|$ Demo available upon request
-\vspace{0.5em}\begin{itemize}[topsep=0pt, itemsep=3pt, parsep=0pt, partopsep=0pt]
+\vspace{0.3em}\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]
     \item RAG implementation using FAISS vector store with E5 embeddings
     \item Weights \& Biases experiment tracking and model monitoring
     \item Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
 \end{itemize}
-\vspace{1em}
-\noindent\textbf{MealCreator - Full-Stack React Website}\\
-A full-stack Progressive Website for meal planning and pantry management.\\
-\href{https://github.com/NatanelRichey/MealCreator}{GitHub} $|$ Demo available upon request
-\vspace{0.5em}\begin{itemize}[topsep=0pt, itemsep=3pt, parsep=0pt, partopsep=0pt]
-    \item Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80\%+
-    \item TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
+\vspace{0.5em}
+\noindent\textbf{ShadchanitDB - AI-Powered Matchmaking Platform}\\
+A comprehensive full-stack matchmaking database system with AI-powered data extraction, WhatsApp integration, and intelligent matching algorithms.\\
+\href{https://github.com/NatanelRichey/ShadchanitDB}{GitHub} $|$ Live Production System
+\vspace{0.3em}\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]
+    \item AI-powered resume processing using Google Gemini Vision API with multi-language OCR, extracting structured data from Hebrew/English resumes with confidence scoring, reducing manual data entry by 95\%+
+    \item Full-stack TypeScript implementation with WhatsApp Business API integration via Twilio, sophisticated matching algorithm evaluating 7+ compatibility factors, enterprise-grade security (bcrypt, rate limiting, session auth), and production-ready features (Cloudinary, analytics dashboard, advanced search)
 \end{itemize}
-\vspace{1em}
+\vspace{0.5em}
 \end{document}

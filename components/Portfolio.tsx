@@ -81,15 +81,14 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          layout
+        {/* Projects Grid - Masonry Tile Layout */}
+        <div 
+          className="columns-1 md:columns-2 gap-8"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              layout
+              className="break-inside-avoid mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
@@ -98,7 +97,7 @@ export default function Portfolio() {
               <ProjectCard project={project} />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Show message if no projects match filter */}
         {filteredProjects.length === 0 && (
@@ -146,18 +145,24 @@ function ProjectCard({ project }: { project: Project }) {
             : 'bg-foreground/10'
         }`}
       >
-        {/* Always show image as base layer */}
+        {/* Always show image as base layer - hide when video is playing */}
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className={`group-hover:scale-105 transition-transform duration-300 ${
+          className={`group-hover:scale-105 transition-all duration-300 ${
+            isHovering && project.video && !videoEnded 
+              ? 'opacity-0' 
+              : 'opacity-100'
+          } ${
             project.title.includes('MealCreator')
               ? 'object-cover'
               : project.title.includes('TheraBot')
               ? 'object-contain'
               : project.title.includes('WhatsApp')
               ? 'object-cover object-[center_90%]'
+              : project.title.includes('ShadchanitDB') || project.title.includes('Shadchan')
+              ? 'object-cover'
               : project.title.includes('Interactive CV')
               ? 'object-contain'
               : 'object-contain'

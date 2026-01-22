@@ -15,7 +15,7 @@ Methodical and analytical, hard-working and efficient, fast-learning, hungry for
 EXPERIENCE
 --------------------------------------------------------------------------------
 Machine Learning Engineer
-BabyClue · Part-time
+BabyClue
 Nov 2025 - Present
 
 Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
@@ -26,6 +26,10 @@ Built and evaluated a multi-class infant-cry classification pipeline, focusing o
 • Engineered prompt variants for LLM classification (Chain-of-Thought, Tree-of-Thought variants), systematically compared API responses across providers, evaluating reasoning quality, and refining prompt structure and routing logic to reduce token costs while refining performance
 
 Skills: Machine Learning, Data-Centric AI, Hyperparameter Optimization
+
+Founder
+Even Pinah Services · https://evenpinah.services/
+June 2025 - Present
 
 
 EDUCATION
@@ -58,11 +62,11 @@ GitHub: https://github.com/NatanelRichey/therabot | Demo available upon request
 
 Technologies: Python, AI Model Training, LoRA Fine-tuning, NLP, RAG implementation
 
-MealCreator - Full-Stack React Website
-A full-stack Progressive Website for meal planning and pantry management.
-GitHub: https://github.com/NatanelRichey/MealCreator | Demo available upon request
+ShadchanitDB - AI-Powered Matchmaking Platform
+A comprehensive full-stack matchmaking database system with AI-powered data extraction, WhatsApp integration, and intelligent matching algorithms.
+GitHub: https://github.com/NatanelRichey/ShadchanitDB | Live Production System
 
-• Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+
-• TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas
+• AI-powered resume processing using Google Gemini Vision API with multi-language OCR, extracting structured data from Hebrew/English resumes with confidence scoring, reducing manual data entry by 95%+
+• Full-stack TypeScript implementation with WhatsApp Business API integration via Twilio, sophisticated matching algorithm evaluating 7+ compatibility factors, enterprise-grade security (bcrypt, rate limiting, session auth), and production-ready features (Cloudinary, analytics dashboard, advanced search)
 
-Technologies: Next.js, TypeScript, MongoDB, React Query, Cloudinary, Vercel, PWA
+Technologies: Next.js, TypeScript, MongoDB, Twilio WhatsApp API, Google Gemini AI, Cloudinary, bcrypt, Vercel

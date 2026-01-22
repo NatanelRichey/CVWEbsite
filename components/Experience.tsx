@@ -47,7 +47,18 @@ function ExperienceCard({ experience }: { experience: Experience }) {
 
       {/* Position and Company */}
       <h3 className="text-2xl font-bold mb-1">{experience.position}</h3>
-      <p className="text-lg text-foreground/70 mb-1">{experience.company}</p>
+      {experience.companyUrl ? (
+        <a
+          href={experience.companyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lg text-foreground/70 mb-1 hover:text-foreground hover:underline transition-colors inline-block"
+        >
+          {experience.company} ↗
+        </a>
+      ) : (
+        <p className="text-lg text-foreground/70 mb-1">{experience.company}</p>
+      )}
       <p className="text-sm text-foreground/60 mb-4">📍 {experience.location}</p>
 
       {/* Description */}

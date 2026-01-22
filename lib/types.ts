@@ -19,6 +19,7 @@ export interface SocialLinks {
   github: string;
   twitter?: string;  // ? means optional
   portfolio?: string;
+  company?: string;  // Company website URL
 }
 
 export interface Experience {
@@ -30,6 +31,7 @@ export interface Experience {
   endDate: string;
   description: string[];
   technologies: string[];
+  companyUrl?: string;  // Optional company website URL
 }
 
 export interface Education {

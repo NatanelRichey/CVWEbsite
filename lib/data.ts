@@ -20,6 +20,7 @@ export const socialLinks = {
   // Add more social links as needed
   twitter: "",
   portfolio: "",
+  company: "https://evenpinah.services/",
 };
 
 // Work experience in reverse chronological order (most recent first)
@@ -28,7 +29,7 @@ export const experience = [
     id: 1,
     company: "BabyClue",
     position: "Machine Learning Engineer",
-    location: "Part-time",
+    location: "",
     startDate: "Nov 2025",
     endDate: "Present",
     description: [
@@ -38,7 +39,24 @@ export const experience = [
       "Built the full training pipeline combining audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (e.g., MLP, LightGBM, plus classical baselines like SVM/Nearest Centroid where applicable)",
       "Engineered prompt variants for LLM classification (Chain-of-Thought, Tree-of-Thought variants), systematically compared API responses across providers, evaluating reasoning quality, and refining prompt structure and routing logic to reduce token costs while refining performance",
     ],
-    technologies: ["Python", "Machine Learning", "Data-Centric AI", "Hyperparameter Optimization"],
+    technologies: ["Python", "Machine Learning", "Data-Centric AI", "Hyperparameter Optimization", "Prompt Engineering"],
+  },
+  {
+    id: 2,
+    company: "Even Pinah Services",
+    position: "Founder",
+    location: "Jerusalem, Israel",
+    startDate: "June 2025",
+    endDate: "Present",
+    description: [
+      "Founded and lead a company specializing in curing operational chaos for small businesses through personalized technical solutions.",
+      "Design and implement website automation, integration, and workflow optimization tools that eliminate wasted effort and replace scattered workflows with unified operating systems.",
+      "Bridge the gap between business needs and cutting-edge technology, specializing in Web/App Development and Applied Machine Learning.",
+      "Create tailored technical solutions that fit naturally into client workflows, focusing on efficiency, automation, and organization.",
+      "Work directly with clients to understand their unique business processes and deliver solutions that bring measurable success.",
+    ],
+    technologies: ["Web Development", "App Development", "Automation", "Integration", "Machine Learning", "Workflow Optimization", "Business Strategy"],
+    companyUrl: "https://evenpinah.services/",
   },
   // Add more experiences as needed
 ];
@@ -69,6 +87,7 @@ export const skills = {
 };
 
 // Portfolio projects - Your showcase pieces!
+// Order matters for CSS columns layout: items flow top-to-bottom in column 1, then column 2
 export const projects = [
   {
     id: 1,
@@ -87,22 +106,6 @@ export const projects = [
     category: "AI/ML",
   },
   {
-    id: 2,
-    title: "MealCreator - Full-Stack React Website",
-    description: "A full-stack Progressive Website for meal planning and pantry management.",
-    longDescription: "A full-stack Progressive Website for meal planning and pantry management.",
-    technologies: ["Next.js", "TypeScript", "MongoDB", "React Query", "Cloudinary", "Vercel", "PWA"],
-    image: "/images/mealcreator.png",
-    video: "/vidoes/mealcreator.mp4",
-    githubUrl: "https://github.com/NatanelRichey/MealCreator",
-    status: "Demo Available on Request",
-    highlights: [
-      "Real time data sync using React Query with optimistic updates and intelligent cache invalidation, reducing API calls by 80%+",
-      "TypeScript implementation across Next.js components, RESTful backend API, MongoDB and Mongoose schemas",
-    ],
-    category: "Full-Stack",
-  },
-  {
     id: 3,
     title: "WhatsApp Crawler with AI Sentiment Analysis",
     description: "Automated WhatsApp data collection tool with integrated API-based AI sentiment analysis to extract insights from conversations.",
@@ -116,6 +119,26 @@ export const projects = [
       "Data visualization and reporting. Privacy-focused architecture",
     ],
     category: "AI/Data",
+  },
+  {
+    id: 2,
+    title: "ShadchanitDB - AI-Powered Matchmaking Platform",
+    description: "A comprehensive full-stack matchmaking database system with AI-powered data extraction, WhatsApp integration, and intelligent matching algorithms.",
+    longDescription: "A production-grade matchmaking platform that streamlines the traditional shidduch process through automated data extraction, intelligent matching algorithms, and seamless WhatsApp integration. Built with modern web technologies and enterprise-level security practices.",
+    technologies: ["Next.js", "TypeScript", "React", "MongoDB", "Mongoose", "Twilio WhatsApp API", "Google Gemini AI", "Cloudinary", "bcrypt", "Tesseract.js", "Tailwind CSS", "Vercel"],
+    image: "/images/shadchan-DB.png",
+    video: "/vidoes/shadchan-DB.mp4",
+    githubUrl: "https://github.com/NatanelRichey/ShadchanitDB",
+    status: "Live Production System",
+    highlights: [
+      "AI-powered resume processing using Google Gemini Vision API with multi-language OCR, extracting structured data from Hebrew/English resumes with confidence scoring and visual verification, reducing manual data entry by 95%+",
+      "WhatsApp Business API integration via Twilio enabling seamless profile submission workflow - users send resume images via WhatsApp, system processes and extracts data automatically, with session management and cost tracking",
+      "Sophisticated matching algorithm evaluating 7+ compatibility factors (age gap, location, ethnicity, religious affiliation, learning status, head covering preferences) with intelligent location mapping supporting cross-country matching based on relocation preferences",
+      "Enterprise-grade security architecture: bcrypt password hashing, MongoDB-based rate limiting (configurable per-endpoint), session-based authentication with secure cookie management, token-based external form access, and comprehensive API authentication middleware",
+      "Full-stack TypeScript implementation across Next.js 16 App Router, React 19 components with Context API, MongoDB schemas with Mongoose, and RESTful API routes with server actions, ensuring type safety end-to-end",
+      "Production-ready features: Cloudinary image management with automatic cleanup, real-time analytics dashboard, pending client workflow with approval system, advanced search with multi-criteria filtering, and responsive PWA-ready UI"
+    ],
+    category: "Full-Stack",
   },
 ];
 

@@ -15,7 +15,7 @@ export default function Hero() {
     // pt-16 adds padding-top to account for fixed navbar
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4">
       <div className="max-w-6xl w-full">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
           {/* Profile Image - Animated Entry */}
           <motion.div 
             className="flex-shrink-0"
@@ -110,6 +110,16 @@ export default function Hero() {
                   className="px-6 py-3 border-2 border-foreground/20 rounded-lg hover:border-foreground/40 hover:bg-foreground/10 hover:scale-105 transition-all duration-200 font-medium"
                 >
                   GitHub
+                </a>
+              )}
+              {socialLinks.company && (
+                <a
+                  href={socialLinks.company}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-foreground/10 border-2 border-foreground/30 rounded-lg hover:border-[#b7965c] hover:bg-[#b7965c] hover:text-background hover:scale-105 transition-all duration-200 font-medium"
+                >
+                  Even Pinah Services
                 </a>
               )}
             </motion.div>
