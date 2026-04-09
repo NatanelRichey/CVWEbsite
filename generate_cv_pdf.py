@@ -101,7 +101,7 @@ def parse_cv_data(filename):
 def generate_latex(header, sections):
     """Generate LaTeX code from parsed CV data"""
     
-    latex = """\\documentclass[10.5pt]{article}
+    latex = """\\documentclass[10pt]{article}
 \\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
 \\usepackage{enumitem}
 \\usepackage{hyperref}
@@ -109,19 +109,19 @@ def generate_latex(header, sections):
 \\usepackage{tabularx}
 
 % Balanced spacing
-\\setlength{\\parskip}{2pt}
+\\setlength{\\parskip}{1pt}
 \\setlength{\\parindent}{0pt}
 
 % List spacing with proper gaps between items
-\\setlist{leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt}
+\\setlist{leftmargin=1.5em, topsep=1pt, itemsep=1pt, parsep=0pt}
 
 % Custom commands for formatting
 \\newcommand{\\cvsection}[1]{
-    \\vspace{0.06in}
-    \\noindent{\\large \\textbf{#1}}
-    \\vspace{0.02in}
-    \\hrule
     \\vspace{0.04in}
+    \\noindent{\\large \\textbf{#1}}
+    \\vspace{0.01in}
+    \\hrule
+    \\vspace{0.03in}
 }
 
 % Hyperlink setup
@@ -252,11 +252,11 @@ def generate_latex(header, sections):
                     latex += f"{escape_latex(intro)}\n"
                 
                 if bullet_points:
-                    latex += "\n\\begin{itemize}[topsep=2pt, itemsep=2pt]\n"
+                    latex += "\n\\begin{itemize}\n"
                     for bp in bullet_points:
                         latex += f"    \\item {escape_latex(bp)}\n"
                     latex += "\\end{itemize}\n"
-                
+
                 latex += "\n"
             else:
                 i += 1

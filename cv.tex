@@ -1,4 +1,4 @@
-\documentclass[10.5pt]{article}
+\documentclass[10pt]{article}
 \usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -6,19 +6,19 @@
 \usepackage{tabularx}
 
 % Balanced spacing
-\setlength{\parskip}{2pt}
+\setlength{\parskip}{1pt}
 \setlength{\parindent}{0pt}
 
 % List spacing with proper gaps between items
-\setlist{leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt}
+\setlist{leftmargin=1.5em, topsep=1pt, itemsep=1pt, parsep=0pt}
 
 % Custom commands for formatting
 \newcommand{\cvsection}[1]{
-    \vspace{0.06in}
-    \noindent{\large \textbf{#1}}
-    \vspace{0.02in}
-    \hrule
     \vspace{0.04in}
+    \noindent{\large \textbf{#1}}
+    \vspace{0.01in}
+    \hrule
+    \vspace{0.03in}
 }
 
 % Hyperlink setup
@@ -50,7 +50,7 @@
 \noindent\textbf{Machine Learning Engineer, BabyClue} \hfill Nov 2025 - Present\\
 Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
 
-\begin{itemize}[topsep=2pt, itemsep=2pt]
+\begin{itemize}
     \item Developed end-to-end ML evaluation workflows in Python
     \item Ran rigorous, comparative model testing using nested CV with fold-level and aggregated analysis (macro/micro F1, per-class precision/recall/F1, confusion matrices, latency) to reliably determine which approaches generalized best across splits
     \item Built the full training pipeline combining audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (e.g., MLP, LightGBM, plus classical baselines like SVM/Nearest Centroid where applicable)
@@ -66,6 +66,7 @@ Hebrew University of Jerusalem, Jerusalem, Israel
 \cvsection{Technical Skills}
 \begin{itemize}[topsep=2pt, itemsep=2pt]
     \item \textbf{Languages:} Python, JavaScript, TypeScript, SQL, C, C++, Java
+    \item \textbf{Agentic Coding:} Cursor, Claude CLI, OpenClaw
     \item \textbf{Tools:} Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel, Weights \& Biases
     \item \textbf{AI/ML:} TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, LangChain, LangGraph, Multi-Agent Orchestration, Prompt Engineering, LLM Provider Integration (OpenAI, Anthropic, Google Gemini), Embeddings \& Vector Databases (ChromaDB, FAISS), Semantic Caching, Output Validation \& Guardrails, A/B Testing for LLMs, NLP, Sentiment Analysis
     \item \textbf{Frontend:} React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion

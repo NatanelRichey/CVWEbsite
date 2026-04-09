@@ -82,6 +82,7 @@ export const skills = {
   frontend: ["React", "Next.js", "Tailwind CSS", "HTML/CSS", "Framer Motion"],
   backend: ["FastAPI", "Node.js", "Express", "MongoDB", "PostgreSQL", "REST APIs", "Redis", "React Query", "pydantic-settings", "structlog"],
   tools: ["Cursor + CLI, MCP, skills.md", "Git", "Docker", "Postman", "Cloudinary", "Vercel", "Weights & Biases"],
+  agenticCoding: ["Cursor", "Claude CLI", "OpenClaw"],
   aiml: ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace Transformers", "LoRA Fine-tuning", "Hyperparameter Tuning", "RAG implementation", "LangChain", "LangGraph", "Multi-Agent Orchestration", "Prompt Engineering", "LLM Provider Integration (OpenAI, Anthropic, Google Gemini)", "Embeddings & Vector Databases (ChromaDB, FAISS)", "Semantic Caching", "Output Validation & Guardrails", "A/B Testing for LLMs", "NLP", "Sentiment Analysis"],
   other: ["OOP", "Operating Systems", "Algorithms and Data Structures", "Statistics and Computational Methods", "Data Science", "PWA", "Web Scraping"],
 };

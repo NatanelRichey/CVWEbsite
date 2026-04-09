@@ -51,6 +51,7 @@ export interface Skills {
   frontend: string[];
   backend: string[];
   tools: string[];
+  agenticCoding: string[];
   aiml: string[];
   other: string[];
 }

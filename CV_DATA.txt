@@ -43,6 +43,7 @@ Jerusalem, Israel
 Skills
 --------------------------------------------------------------------------------
 Languages: Python, JavaScript, TypeScript, SQL, C, C++, Java
+Agentic Coding: Cursor, Claude CLI, OpenClaw
 Tools: Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel, Weights & Biases
 AI/ML: TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, LangChain, LangGraph, Multi-Agent Orchestration, Prompt Engineering, LLM Provider Integration (OpenAI, Anthropic, Google Gemini), Embeddings & Vector Databases (ChromaDB, FAISS), Semantic Caching, Output Validation & Guardrails, A/B Testing for LLMs, NLP, Sentiment Analysis
 Frontend: React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion

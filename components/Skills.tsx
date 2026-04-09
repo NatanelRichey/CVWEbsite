@@ -11,7 +11,8 @@ export default function Skills() {
   const skillCategories = [
     { label: 'Languages', skills: skills.languages, icon: '💻' },
     { label: 'Tools', skills: skills.tools, icon: '🛠️' },
-    { label: 'AI/ML', skills: skills.aiml, icon: '🤖' },
+    { label: 'Agentic Coding', skills: skills.agenticCoding, icon: '🤖' },
+    { label: 'AI/ML', skills: skills.aiml, icon: '🧠' },
     { label: 'Frontend', skills: skills.frontend, icon: '🎨' },
     { label: 'Backend', skills: skills.backend, icon: '⚙️' },
     { label: 'Other', skills: skills.other, icon: '📚' },
