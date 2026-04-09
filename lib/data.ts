@@ -91,7 +91,7 @@ export const skills = {
 export const projects = [
   {
     id: 0,
-    title: "AI Wellness Companion — Production GenAI System",
+    title: "TheraBot Beta",
     description: "Production-grade conversational therapy AI built to demonstrate a full Generative AI Lead Engineer skillset. Multi-provider LLM backend with automatic fallback, 6-layer memory architecture, LangGraph multi-agent orchestration, and RAG pipeline grounded in DBT clinical content.",
     longDescription: "Production-grade conversational therapy AI built to demonstrate a full Generative AI Lead Engineer skillset. Multi-provider LLM backend with automatic fallback, 6-layer memory architecture, LangGraph multi-agent orchestration, and RAG pipeline grounded in DBT clinical content.",
     technologies: ["Python", "FastAPI", "LangGraph", "LangChain", "OpenAI API", "Anthropic API", "ChromaDB", "Redis", "RAG", "Prompt Engineering", "Multi-Agent Systems", "Async Python", "Docker"],
@@ -107,22 +107,6 @@ export const projects = [
       "A/B testing framework (ExperimentRunner) with concurrent variant execution and /compare/vote endpoint",
       "Sensitive topic detection with persistent Redis flag across LangGraph invocations and careful post-session summarization",
       "Async FastAPI backend, structlog structured logging, Docker containerization, pydantic-settings config",
-    ],
-    category: "AI/ML",
-  },
-  {
-    id: 1,
-    title: "TheraBot Beta",
-    description: "Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.",
-    longDescription: "Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.",
-    technologies: ["Python", "AI Model Training", "LoRA Fine-tuning", "NLP", "RAG implementation"],
-    image: "/images/therabot.avif",
-    githubUrl: "https://github.com/NatanelRichey/therabot",
-    status: "Demo Available on Request",
-    highlights: [
-      "RAG implementation using FAISS vector store with E5 embeddings",
-      "Weights & Biases experiment tracking and model monitoring",
-      "Deployment on HuggingFace Spaces and Google Colab with GPU acceleration",
     ],
     category: "AI/ML",
   },
