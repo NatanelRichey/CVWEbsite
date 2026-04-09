@@ -126,8 +126,11 @@ function ProjectCard({ project }: { project: Project }) {
     setVideoEnded(false);
   };
 
+  const [descExpanded, setDescExpanded] = useState(false);
   const PREVIEW_COUNT = 2;
   const hasMore = project.highlights.length > PREVIEW_COUNT;
+  const DESC_LIMIT = 100;
+  const descTooLong = project.description.length > DESC_LIMIT;
 
   return (
     <div 
@@ -198,7 +201,21 @@ function ProjectCard({ project }: { project: Project }) {
       {/* Project Info */}
       <div className="p-6">
         <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-        <p className="text-foreground/70 mb-4">{project.description}</p>
+        <div className="text-foreground/70 mb-4">
+          <p className="text-sm">
+            {descExpanded || !descTooLong
+              ? project.description
+              : project.description.slice(0, DESC_LIMIT).trimEnd() + '…'}
+          </p>
+          {descTooLong && (
+            <button
+              onClick={() => setDescExpanded(!descExpanded)}
+              className="mt-1 text-xs text-foreground/50 hover:text-foreground transition-colors"
+            >
+              {descExpanded ? 'Show less' : 'Read more'}
+            </button>
+          )}
+        </div>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-4">
