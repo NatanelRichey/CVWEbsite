@@ -80,9 +80,9 @@ export const education = [
 export const skills = {
   languages: ["Python", "JavaScript", "TypeScript", "SQL", "C", "C++", "Java"],
   frontend: ["React", "Next.js", "Tailwind CSS", "HTML/CSS", "Framer Motion"],
-  backend: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST APIs", "React Query"],
-  tools: ["Cursor + CLI, MCP, skills.md", "Git", "Docker", "Postman", "Cloudinary", "Vercel"],
-  aiml: ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace Transformers", "LoRA Fine-tuning", "Hyperparameter Tuning", "RAG implementation", "Model APIs", "NLP", "LangChain", "Sentiment Analysis"],
+  backend: ["FastAPI", "Node.js", "Express", "MongoDB", "PostgreSQL", "REST APIs", "Redis", "React Query", "pydantic-settings", "structlog"],
+  tools: ["Cursor + CLI, MCP, skills.md", "Git", "Docker", "Postman", "Cloudinary", "Vercel", "Weights & Biases"],
+  aiml: ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace Transformers", "LoRA Fine-tuning", "Hyperparameter Tuning", "RAG implementation", "LangChain", "LangGraph", "Multi-Agent Orchestration", "Prompt Engineering", "LLM Provider Integration (OpenAI, Anthropic, Google Gemini)", "Embeddings & Vector Databases (ChromaDB, FAISS)", "Semantic Caching", "Output Validation & Guardrails", "A/B Testing for LLMs", "NLP", "Sentiment Analysis"],
   other: ["OOP", "Operating Systems", "Algorithms and Data Structures", "Statistics and Computational Methods", "Data Science", "PWA", "Web Scraping"],
 };
 
@@ -90,18 +90,23 @@ export const skills = {
 // Order matters for CSS columns layout: items flow top-to-bottom in column 1, then column 2
 export const projects = [
   {
-    id: 1,
-    title: "TheraBot - Fine-tuned AI Model",
-    description: "Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.",
-    longDescription: "Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.",
-    technologies: ["Python", "AI Model Training", "LoRA Fine-tuning", "NLP", "RAG implementation"],
+    id: 0,
+    title: "AI Wellness Companion — Production GenAI System",
+    description: "Production-grade conversational therapy AI built to demonstrate a full Generative AI Lead Engineer skillset. Multi-provider LLM backend with automatic fallback, 6-layer memory architecture, LangGraph multi-agent orchestration, and RAG pipeline grounded in DBT clinical content.",
+    longDescription: "Production-grade conversational therapy AI built to demonstrate a full Generative AI Lead Engineer skillset. Multi-provider LLM backend with automatic fallback, 6-layer memory architecture, LangGraph multi-agent orchestration, and RAG pipeline grounded in DBT clinical content.",
+    technologies: ["Python", "FastAPI", "LangGraph", "LangChain", "OpenAI API", "Anthropic API", "ChromaDB", "Redis", "RAG", "Prompt Engineering", "Multi-Agent Systems", "Async Python", "Docker"],
     image: "/images/therabot.avif",
-    githubUrl: "https://github.com/NatanelRichey/therabot",
+    githubUrl: "https://github.com/NatanelRichey",
     status: "Demo Available on Request",
     highlights: [
-      "RAG implementation using FAISS vector store with E5 embeddings",
-      "Weights & Biases experiment tracking and model monitoring",
-      "Deployment on HuggingFace Spaces and Google Colab with GPU acceleration",
+      "Multi-provider LLM abstraction layer (OpenAI, Anthropic, DeepSeek) with automatic fallback routing and token budget enforcement",
+      "8-node LangGraph agent graph with safety routing, crisis short-circuit, and full audit trail via routing_path",
+      "6-layer memory architecture: semantic cache, sliding-window history, two-tier working memory, episodic store, long-term gems (personal facts, sensitive disclosures, psych patterns), and per-turn special instructions",
+      "RAG pipeline with LLM query rewriting, ChromaDB retrieval, score-threshold filtering, and DBT knowledge grounding",
+      "GateAgent (5-classifier: safety, RAG, sensitive, personal_info, topic_shift) + AlphaAgent output validation (clinical claim, hallucination, low confidence)",
+      "A/B testing framework (ExperimentRunner) with concurrent variant execution and /compare/vote endpoint",
+      "Sensitive topic detection with persistent Redis flag across LangGraph invocations and careful post-session summarization",
+      "Async FastAPI backend, structlog structured logging, Docker containerization, pydantic-settings config",
     ],
     category: "AI/ML",
   },
@@ -119,26 +124,6 @@ export const projects = [
       "Data visualization and reporting. Privacy-focused architecture",
     ],
     category: "AI/Data",
-  },
-  {
-    id: 2,
-    title: "ShadchanitDB - AI-Powered Matchmaking Platform",
-    description: "A comprehensive full-stack matchmaking database system with AI-powered data extraction, WhatsApp integration, and intelligent matching algorithms.",
-    longDescription: "A production-grade matchmaking platform that streamlines the traditional shidduch process through automated data extraction, intelligent matching algorithms, and seamless WhatsApp integration. Built with modern web technologies and enterprise-level security practices.",
-    technologies: ["Next.js", "TypeScript", "React", "MongoDB", "Mongoose", "Twilio WhatsApp API", "Google Gemini AI", "Cloudinary", "bcrypt", "Tesseract.js", "Tailwind CSS", "Vercel"],
-    image: "/images/shadchan-DB.png",
-    video: "/vidoes/shadchan-DB.mp4",
-    githubUrl: "https://github.com/NatanelRichey/ShadchanitDB",
-    status: "Live Production System",
-    highlights: [
-      "AI-powered resume processing using Google Gemini Vision API with multi-language OCR, extracting structured data from Hebrew/English resumes with confidence scoring and visual verification, reducing manual data entry by 95%+",
-      "WhatsApp Business API integration via Twilio enabling seamless profile submission workflow - users send resume images via WhatsApp, system processes and extracts data automatically, with session management and cost tracking",
-      "Sophisticated matching algorithm evaluating 7+ compatibility factors (age gap, location, ethnicity, religious affiliation, learning status, head covering preferences) with intelligent location mapping supporting cross-country matching based on relocation preferences",
-      "Enterprise-grade security architecture: bcrypt password hashing, MongoDB-based rate limiting (configurable per-endpoint), session-based authentication with secure cookie management, token-based external form access, and comprehensive API authentication middleware",
-      "Full-stack TypeScript implementation across Next.js 16 App Router, React 19 components with Context API, MongoDB schemas with Mongoose, and RESTful API routes with server actions, ensuring type safety end-to-end",
-      "Production-ready features: Cloudinary image management with automatic cleanup, real-time analytics dashboard, pending client workflow with approval system, advanced search with multi-criteria filtering, and responsive PWA-ready UI"
-    ],
-    category: "Full-Stack",
   },
 ];
 

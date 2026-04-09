@@ -64,25 +64,27 @@ def parse_cv_data(filename):
     current_section = None
     current_content = []
     
+    KNOWN_SECTIONS = {'EXPERIENCE', 'EDUCATION', 'SKILLS', 'PROJECTS'}
+
     i = 0
     # Get header (everything before first section)
     while i < len(lines):
         line = lines[i].rstrip('\n')
-        if line.strip() and line.strip().isupper() and not line.startswith('---'):
+        if line.strip() and line.strip().upper() in KNOWN_SECTIONS and not line.startswith('---'):
             break
         if line.strip():
             header.append(line)
         i += 1
-    
+
     # Parse sections
     while i < len(lines):
         line = lines[i].rstrip('\n')
         line_stripped = line.strip()
-        
-        if line_stripped and line_stripped.isupper() and not line_stripped.startswith('---') and not line_stripped.startswith('•'):
+
+        if line_stripped and line_stripped.upper() in KNOWN_SECTIONS and not line_stripped.startswith('---') and not line_stripped.startswith('•'):
             if current_section:
                 body_sections[current_section] = '\n'.join(current_content)
-            current_section = line_stripped
+            current_section = line_stripped.upper()  # normalize to uppercase key
             current_content = []
         elif line_stripped.startswith('---'):
             pass
@@ -100,26 +102,26 @@ def generate_latex(header, sections):
     """Generate LaTeX code from parsed CV data"""
     
     latex = """\\documentclass[10.5pt]{article}
-\\usepackage[margin=0.45in, top=0.4in, bottom=0.4in]{geometry}
+\\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
 \\usepackage{enumitem}
 \\usepackage{hyperref}
 \\usepackage{url}
 \\usepackage{tabularx}
 
 % Balanced spacing
-\\setlength{\\parskip}{3pt}
+\\setlength{\\parskip}{2pt}
 \\setlength{\\parindent}{0pt}
 
 % List spacing with proper gaps between items
-\\setlist{leftmargin=1.5em, topsep=3pt, itemsep=3pt, parsep=1pt}
+\\setlist{leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt}
 
 % Custom commands for formatting
 \\newcommand{\\cvsection}[1]{
-    \\vspace{0.1in}
-    \\noindent{\\large \\textbf{#1}}
-    \\vspace{0.03in}
-    \\hrule
     \\vspace{0.06in}
+    \\noindent{\\large \\textbf{#1}}
+    \\vspace{0.02in}
+    \\hrule
+    \\vspace{0.04in}
 }
 
 % Hyperlink setup
@@ -139,7 +141,7 @@ def generate_latex(header, sections):
         name = escape_latex(header[0].strip()) if len(header) > 0 else "Name"
         latex += "\\begin{center}\n"
         latex += f"    {{\\huge \\textbf{{{name}}}}}\\\\\n"
-        latex += "    \\vspace{0.08in}\n"
+        latex += "    \\vspace{0.05in}\n"
         
         # Contact info - only phone/email line
         contact_info = ""
@@ -176,17 +178,17 @@ def generate_latex(header, sections):
             link_items = []
             for label, url in links.items():
                 link_items.append(f"\\href{{{url}}}{{{label}}}")
-            latex += "    \\vspace{0.03in}\n"
+            latex += "    \\vspace{0.02in}\n"
             latex += "    " + " $|$ ".join(link_items) + "\n"
         
-        latex += "    \\vspace{0.05in}\n"
+        latex += "    \\vspace{0.03in}\n"
         latex += "\\end{center}\n\n"
         
         # SUMMARY SECTION - use bio_lines collected from header (no line)
         if bio_lines:
-            latex += "\\vspace{0.08in}\n"
+            latex += "\\vspace{0.05in}\n"
             latex += "\\noindent{\\large \\textbf{Summary}}\n"
-            latex += "\\vspace{0.06in}\n\n"
+            latex += "\\vspace{0.04in}\n\n"
             summary_text = " ".join([escape_latex(l) for l in bio_lines])
             latex += f"\\noindent {summary_text}\n\n"
     
@@ -250,7 +252,7 @@ def generate_latex(header, sections):
                     latex += f"{escape_latex(intro)}\n"
                 
                 if bullet_points:
-                    latex += "\n\\begin{itemize}\n"
+                    latex += "\n\\begin{itemize}[topsep=2pt, itemsep=2pt]\n"
                     for bp in bullet_points:
                         latex += f"    \\item {escape_latex(bp)}\n"
                     latex += "\\end{itemize}\n"
@@ -284,7 +286,7 @@ def generate_latex(header, sections):
     # TECHNICAL SKILLS SECTION
     if 'SKILLS' in sections:
         latex += "\\cvsection{Technical Skills}\n"
-        latex += "\\begin{itemize}\n"
+        latex += "\\begin{itemize}[topsep=2pt, itemsep=2pt]\n"
         content = sections['SKILLS']
         lines = [l.strip() for l in content.split('\n') if l.strip()]
         
@@ -327,7 +329,7 @@ def generate_latex(header, sections):
                 # Get GitHub | Demo line (skip empty lines)
                 while i < len(lines) and not lines[i].strip():
                     i += 1
-                if i < len(lines) and 'GitHub' in lines[i] and 'Demo available' in lines[i]:
+                if i < len(lines) and 'GitHub' in lines[i] and ('Demo available' in lines[i] or 'Live' in lines[i]):
                     github_demo_line = lines[i].strip()
                     i += 1
                     
@@ -336,8 +338,7 @@ def generate_latex(header, sections):
                     i += 1
                 
                 details = []
-                technologies = ""
-                
+
                 while i < len(lines):
                     line = lines[i].strip()
                     if not line:
@@ -347,8 +348,7 @@ def generate_latex(header, sections):
                         details.append(line.replace('•', '').strip())
                         i += 1
                     elif line.startswith('Technologies:'):
-                        technologies = line.replace('Technologies:', '').strip()
-                        i += 1
+                        i += 1  # skip Technologies line, not rendered in PDF
                     else:
                         break
                 
@@ -361,25 +361,28 @@ def generate_latex(header, sections):
                 
                 # GitHub | Demo line (on a new line after description)
                 if github_demo_line:
-                    # Extract GitHub URL and demo text
+                    # Extract GitHub URL and status text
                     github_match = re.search(r'GitHub:\s*(https?://[^\s|]+)', github_demo_line)
-                    demo_match = re.search(r'\|\s*(Demo available upon request)', github_demo_line)
+                    status_match = re.search(r'\|\s*(.+)', github_demo_line)
                     
-                    if github_match and demo_match:
+                    if github_match:
                         github_url = github_match.group(1)
-                        demo_text = demo_match.group(1)
-                        latex += f"\\href{{{github_url}}}{{GitHub}} $|$ {escape_latex(demo_text)}\n"
+                        if status_match:
+                            status_text = status_match.group(1).strip()
+                            latex += f"\\href{{{github_url}}}{{GitHub}} $|$ {escape_latex(status_text)}\n"
+                        else:
+                            latex += f"\\href{{{github_url}}}{{GitHub}}\n"
                     else:
                         # Fallback: just escape the whole line
                         latex += f"{escape_latex(github_demo_line)}\n"
                 if details:
-                    latex += "\\vspace{0.5em}\\begin{itemize}[topsep=0pt, itemsep=3pt, parsep=0pt, partopsep=0pt]\n"
+                    latex += "\\vspace{0.3em}\\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]\n"
                     for d in details:
                         latex += f"    \\item {escape_latex(d)}\n"
                     latex += "\\end{itemize}\n"
                 
                 # Full empty line between projects
-                latex += "\\vspace{1em}\n"
+                latex += "\\vspace{0.5em}\n"
             else:
                 i += 1
     

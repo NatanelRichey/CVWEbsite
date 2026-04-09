@@ -14,7 +14,7 @@
 
 % Custom commands for formatting
 \newcommand{\cvsection}[1]{
-    \vspace{0.1in}
+    \vspace{0.06in}
     \noindent{\large \textbf{#1}}
     \vspace{0.02in}
     \hrule
@@ -57,8 +57,7 @@ Built and evaluated a multi-class infant-cry classification pipeline, focusing o
     \item Engineered prompt variants for LLM classification (Chain-of-Thought, Tree-of-Thought variants), systematically compared API responses across providers, evaluating reasoning quality, and refining prompt structure and routing logic to reduce token costs while refining performance
 \end{itemize}
 
-\vspace{0.3em}
-\noindent\textbf{Founder, Even Pinah Services} \quad \href{https://evenpinah.services/}{https://evenpinah.services/} \hfill June 2025 - Present
+\noindent\textbf{Founder, Even Pinah Services · https://evenpinah.services/} \hfill June 2025 - Present\\
 
 \cvsection{Education}
 \noindent\textbf{BSc. in Computer Science, B.A. in Psychology (Hons.)} \hfill 2021 - 2025\\
@@ -67,29 +66,26 @@ Hebrew University of Jerusalem, Jerusalem, Israel
 \cvsection{Technical Skills}
 \begin{itemize}[topsep=2pt, itemsep=2pt]
     \item \textbf{Languages:} Python, JavaScript, TypeScript, SQL, C, C++, Java
-    \item \textbf{Tools:} Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel
-    \item \textbf{AI/ML:} TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, Model APIs, NLP, LangChain, Sentiment Analysis
+    \item \textbf{Tools:} Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel, Weights \& Biases
+    \item \textbf{AI/ML:} TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, LangChain, LangGraph, Multi-Agent Orchestration, Prompt Engineering, LLM Provider Integration (OpenAI, Anthropic, Google Gemini), Embeddings \& Vector Databases (ChromaDB, FAISS), Semantic Caching, Output Validation \& Guardrails, A/B Testing for LLMs, NLP, Sentiment Analysis
     \item \textbf{Frontend:} React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
-    \item \textbf{Backend:} Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
+    \item \textbf{Backend:} FastAPI, Node.js, Express, MongoDB, PostgreSQL, REST APIs, Redis, React Query, pydantic-settings, structlog
     \item \textbf{Other:} OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA, Web Scraping
 \end{itemize}
 
 \cvsection{Projects}
-\noindent\textbf{TheraBot - Fine-tuned AI Model}\\
-Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.\\
-\href{https://github.com/NatanelRichey/therabot}{GitHub} $|$ Demo available upon request
+\noindent\textbf{AI Wellness Companion — Production GenAI System}\\
+Production-grade conversational therapy AI built to demonstrate a full Generative AI Lead Engineer skillset. Multi-provider LLM backend with automatic fallback, 6-layer memory architecture, LangGraph multi-agent orchestration, and RAG pipeline grounded in DBT clinical content.\\
+\href{https://github.com/NatanelRichey}{GitHub} $|$ Demo available upon request
 \vspace{0.3em}\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]
-    \item RAG implementation using FAISS vector store with E5 embeddings
-    \item Weights \& Biases experiment tracking and model monitoring
-    \item Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
-\end{itemize}
-\vspace{0.5em}
-\noindent\textbf{ShadchanitDB - AI-Powered Matchmaking Platform}\\
-A comprehensive full-stack matchmaking database system with AI-powered data extraction, WhatsApp integration, and intelligent matching algorithms.\\
-\href{https://github.com/NatanelRichey/ShadchanitDB}{GitHub} $|$ Live Production System
-\vspace{0.3em}\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]
-    \item AI-powered resume processing using Google Gemini Vision API with multi-language OCR, extracting structured data from Hebrew/English resumes with confidence scoring, reducing manual data entry by 95\%+
-    \item Full-stack TypeScript implementation with WhatsApp Business API integration via Twilio, sophisticated matching algorithm evaluating 7+ compatibility factors, enterprise-grade security (bcrypt, rate limiting, session auth), and production-ready features (Cloudinary, analytics dashboard, advanced search)
+    \item Multi-provider LLM abstraction layer (OpenAI, Anthropic, DeepSeek) with automatic fallback routing and token budget enforcement
+    \item 8-node LangGraph agent graph with safety routing, crisis short-circuit, and full audit trail via routing\_path
+    \item 6-layer memory architecture: semantic cache, sliding-window history, two-tier working memory, episodic store, long-term gems (personal facts, sensitive disclosures, psych patterns), and per-turn special instructions
+    \item RAG pipeline with LLM query rewriting, ChromaDB retrieval, score-threshold filtering, and DBT knowledge grounding
+    \item GateAgent (5-classifier: safety, RAG, sensitive, personal\_info, topic\_shift) + AlphaAgent output validation (clinical claim, hallucination, low confidence)
+    \item A/B testing framework (ExperimentRunner) with concurrent variant execution and /compare/vote endpoint
+    \item Sensitive topic detection with persistent Redis flag across LangGraph invocations and careful post-session summarization
+    \item Async FastAPI backend, structlog structured logging, Docker containerization, pydantic-settings config
 \end{itemize}
 \vspace{0.5em}
 \end{document}

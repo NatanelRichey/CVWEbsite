@@ -12,7 +12,7 @@ Experience in training AI models, building full-stack websites, data analysis (A
 Methodical and analytical, hard-working and efficient, fast-learning, hungry for excellence and passionate about bridging the gap between human and machine intelligence.
 
 
-EXPERIENCE
+Experience
 --------------------------------------------------------------------------------
 Machine Learning Engineer
 BabyClue
@@ -32,7 +32,7 @@ Even Pinah Services · https://evenpinah.services/
 June 2025 - Present
 
 
-EDUCATION
+Education
 --------------------------------------------------------------------------------
 Hebrew University of Jerusalem
 BSc. in Computer Science, B.A. in Psychology (Hons.)
@@ -40,33 +40,30 @@ Jerusalem, Israel
 2021 - 2025
 
 
-SKILLS
+Skills
 --------------------------------------------------------------------------------
 Languages: Python, JavaScript, TypeScript, SQL, C, C++, Java
-Tools: Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel
-AI/ML: TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, Model APIs, NLP, LangChain, Sentiment Analysis
+Tools: Cursor + CLI, MCP, skills.md, Git, Docker, Postman, Cloudinary, Vercel, Weights & Biases
+AI/ML: TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers, LoRA Fine-tuning, Hyperparameter Tuning, RAG implementation, LangChain, LangGraph, Multi-Agent Orchestration, Prompt Engineering, LLM Provider Integration (OpenAI, Anthropic, Google Gemini), Embeddings & Vector Databases (ChromaDB, FAISS), Semantic Caching, Output Validation & Guardrails, A/B Testing for LLMs, NLP, Sentiment Analysis
 Frontend: React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
-Backend: Node.js, Express, MongoDB, PostgreSQL, REST APIs, React Query
+Backend: FastAPI, Node.js, Express, MongoDB, PostgreSQL, REST APIs, Redis, React Query, pydantic-settings, structlog
 Other: OOP, Operating Systems, Algorithms and Data Structures, Statistics and Computational Methods, Data Science, PWA, Web Scraping
 
 
-PROJECTS
+Projects
 --------------------------------------------------------------------------------
-TheraBot - Fine-tuned AI Model
-Fine-tuned Llama model using HuggingFace Transformers with LoRA ranking on therapy conversation datasets.
-GitHub: https://github.com/NatanelRichey/therabot | Demo available upon request
+AI Wellness Companion — Production GenAI System
+Production-grade conversational therapy AI built to demonstrate a full Generative AI Lead Engineer skillset. Multi-provider LLM backend with automatic fallback, 6-layer memory architecture, LangGraph multi-agent orchestration, and RAG pipeline grounded in DBT clinical content.
+GitHub: https://github.com/NatanelRichey | Demo available upon request
 
-• RAG implementation using FAISS vector store with E5 embeddings
-• Weights & Biases experiment tracking and model monitoring
-• Deployment on HuggingFace Spaces and Google Colab with GPU acceleration
+• Multi-provider LLM abstraction layer (OpenAI, Anthropic, DeepSeek) with automatic fallback routing and token budget enforcement
+• 8-node LangGraph agent graph with safety routing, crisis short-circuit, and full audit trail via routing_path
+• 6-layer memory architecture: semantic cache, sliding-window history, two-tier working memory, episodic store, long-term gems (personal facts, sensitive disclosures, psych patterns), and per-turn special instructions
+• RAG pipeline with LLM query rewriting, ChromaDB retrieval, score-threshold filtering, and DBT knowledge grounding
+• GateAgent (5-classifier: safety, RAG, sensitive, personal_info, topic_shift) + AlphaAgent output validation (clinical claim, hallucination, low confidence)
+• A/B testing framework (ExperimentRunner) with concurrent variant execution and /compare/vote endpoint
+• Sensitive topic detection with persistent Redis flag across LangGraph invocations and careful post-session summarization
+• Async FastAPI backend, structlog structured logging, Docker containerization, pydantic-settings config
 
-Technologies: Python, AI Model Training, LoRA Fine-tuning, NLP, RAG implementation
+Technologies: Python, FastAPI, LangGraph, LangChain, OpenAI API, Anthropic API, ChromaDB, Redis, RAG, Prompt Engineering, Multi-Agent Systems, Async Python, Docker
 
-ShadchanitDB - AI-Powered Matchmaking Platform
-A comprehensive full-stack matchmaking database system with AI-powered data extraction, WhatsApp integration, and intelligent matching algorithms.
-GitHub: https://github.com/NatanelRichey/ShadchanitDB | Live Production System
-
-• AI-powered resume processing using Google Gemini Vision API with multi-language OCR, extracting structured data from Hebrew/English resumes with confidence scoring, reducing manual data entry by 95%+
-• Full-stack TypeScript implementation with WhatsApp Business API integration via Twilio, sophisticated matching algorithm evaluating 7+ compatibility factors, enterprise-grade security (bcrypt, rate limiting, session auth), and production-ready features (Cloudinary, analytics dashboard, advanced search)
-
-Technologies: Next.js, TypeScript, MongoDB, Twilio WhatsApp API, Google Gemini AI, Cloudinary, bcrypt, Vercel
