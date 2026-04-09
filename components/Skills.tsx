@@ -30,7 +30,7 @@ export default function Skills() {
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <ScrollReveal key={category.label} delay={index * 0.1}>
+            <ScrollReveal key={category.label} delay={index * 0.1} className={category.label === 'AI/ML' ? 'col-span-full' : ''}>
               <div className="bg-background/50 backdrop-blur-sm rounded-lg p-6 border border-foreground/10 hover:border-foreground/30 hover:shadow-lg transition-all duration-300"
             >
               {/* Category Header */}

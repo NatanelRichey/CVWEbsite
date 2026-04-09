@@ -13,12 +13,14 @@ interface ScrollRevealProps {
   children: ReactNode;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right';
+  className?: string;
 }
 
-export default function ScrollReveal({ 
-  children, 
-  delay = 0, 
-  direction = 'up' 
+export default function ScrollReveal({
+  children,
+  delay = 0,
+  direction = 'up',
+  className,
 }: ScrollRevealProps) {
   // useRef creates a reference to the DOM element
   const ref = useRef(null);
@@ -38,6 +40,7 @@ export default function ScrollReveal({
   return (
     <motion.div
       ref={ref}
+      className={className}
       initial={{
         opacity: 0,
         ...directions[direction],
