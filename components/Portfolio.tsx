@@ -112,20 +112,22 @@ export default function Portfolio() {
 
 // Separate component for each project card
 function ProjectCard({ project }: { project: Project }) {
-  // State to track if mouse is hovering over the entire card
   const [isHovering, setIsHovering] = useState(false);
-  // State to track if video has finished playing
   const [videoEnded, setVideoEnded] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
-    setVideoEnded(false); // Reset video ended state when entering
+    setVideoEnded(false);
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
-    setVideoEnded(false); // Reset video ended state when leaving
+    setVideoEnded(false);
   };
+
+  const PREVIEW_COUNT = 2;
+  const hasMore = project.highlights.length > PREVIEW_COUNT;
 
   return (
     <div 
@@ -214,13 +216,25 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="mb-4">
           <p className="text-sm font-semibold mb-2 text-foreground/80">Key Highlights:</p>
           <ul className="space-y-1">
-            {project.highlights.slice(0, 2).map((highlight, idx) => (
+            {(expanded ? project.highlights : project.highlights.slice(0, PREVIEW_COUNT)).map((highlight, idx) => (
               <li key={idx} className="text-sm text-foreground/70 flex items-start gap-2">
                 <span className="text-foreground/50">✓</span>
                 <span>{highlight}</span>
               </li>
             ))}
           </ul>
+          {hasMore && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="mt-2 text-xs text-foreground/50 hover:text-foreground transition-colors flex items-center gap-1"
+            >
+              {expanded ? (
+                <><span>Show less</span><span>↑</span></>
+              ) : (
+                <><span>+{project.highlights.length - PREVIEW_COUNT} more</span><span>↓</span></>
+              )}
+            </button>
+          )}
         </div>
 
         {/* Links */}
