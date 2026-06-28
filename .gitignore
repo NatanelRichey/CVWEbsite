@@ -35,3 +35,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temporary Data Engineering CV build (standalone, do not commit)
+/CV_DE.pdf
+CV_DE.aux
+CV_DE.log
+CV_DE.out

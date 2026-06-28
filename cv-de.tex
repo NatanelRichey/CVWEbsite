@@ -1,0 +1,93 @@
+% ============================================================
+% DATA ENGINEERING CV - Standalone, temporary variant
+% Same pipeline (LaTeX -> PDF). Output: CV_DE.pdf (do not overwrite CV.pdf)
+% ============================================================
+
+\documentclass[10.5pt]{article}
+\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{tabularx}
+
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\setlist{leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt}
+
+\newcommand{\cvsection}[1]{
+    \vspace{0.1in}
+    \noindent{\large \textbf{#1}}
+    \vspace{0.02in}
+    \hrule
+    \vspace{0.04in}
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Natanel Richey}}\\
+    \vspace{0.05in}
+    0584171094 natanelrichey.work@gmail.com\\
+    \vspace{0.02in}
+    \href{https://natanel-richey.space}{Portfolio} $|$ \href{https://www.linkedin.com/in/natanelrichey}{LinkedIn} $|$ \href{https://github.com/NatanelRichey}{GitHub}
+    \vspace{0.03in}
+\end{center}
+
+\vspace{0.05in}
+\noindent{\large \textbf{Summary}}
+\vspace{0.04in}
+
+\noindent Data-focused engineer with strong Python and SQL skills, experience building end-to-end data and ML pipelines, and production use of MongoDB and PostgreSQL. Background in applied machine learning, data preprocessing, feature engineering, and rigorous evaluation workflows. Delivered pipelines for audio/data processing, API integrations, and model training; methodical, analytical, and focused on reproducibility and data quality.
+
+\cvsection{Technical Skills}
+\begin{itemize}[topsep=2pt, itemsep=2pt]
+    \item \textbf{Data \& Backend:} SQL, MongoDB, PostgreSQL, Node.js, Express, REST APIs, React Query; data modeling, ETL, and pipeline design
+    \item \textbf{AI/ML \& Pipelines:} Python, TensorFlow, PyTorch, Scikit-learn, HuggingFace Transformers; LoRA fine-tuning, hyperparameter tuning, RAG implementation, model APIs, NLP; end-to-end ML evaluation and training pipelines
+    \item \textbf{Languages:} Python, SQL, JavaScript, TypeScript, C, C++, Java
+    \item \textbf{Tools:} Git, Docker, Cursor + CLI, MCP, Postman, Cloudinary, Vercel; Weights \& Biases, experiment tracking
+    \item \textbf{Frontend:} React, Next.js, Tailwind CSS, HTML/CSS, Framer Motion
+    \item \textbf{Other:} Statistics and computational methods, data science, algorithms and data structures, OOP, operating systems
+\end{itemize}
+
+\cvsection{Professional Experience}
+\noindent\textbf{Machine Learning Engineer, BabyClue} \hfill Nov 2025 - Present\\
+Built and evaluated a multi-class infant-cry classification pipeline, focusing on robust validation, interpretability, and reproducibility.
+
+\begin{itemize}[topsep=2pt, itemsep=2pt]
+    \item Built the full training pipeline: audio preprocessing (spectrogram-based features / AST embeddings), data augmentation, feature construction (late-fusion of embedding + acoustic features), and model training/inference across multiple model families (MLP, LightGBM, classical baselines)
+    \item Developed end-to-end ML evaluation workflows in Python; rigorous comparative model testing using nested CV with fold-level and aggregated analysis (macro/micro F1, per-class metrics, confusion matrices, latency)
+    \item Engineered prompt variants for LLM classification; compared API responses across providers and refined prompt structure and routing logic for cost and performance
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textbf{Founder, Even Pinah Services} \quad \href{https://evenpinah.services/}{https://evenpinah.services/} \hfill June 2025 - Present
+
+\cvsection{Education}
+\noindent\textbf{BSc. in Computer Science, B.A. in Psychology (Hons.)} \hfill 2021 - 2025\\
+Hebrew University of Jerusalem, Jerusalem, Israel
+
+\cvsection{Projects}
+\noindent\textbf{ShadchanitDB - AI-Powered Matchmaking Platform}\\
+Full-stack system with data extraction pipelines, structured data storage, and intelligent matching.\\
+\href{https://github.com/NatanelRichey/ShadchanitDB}{GitHub} $|$ Live Production System
+\vspace{0.3em}\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]
+    \item AI-powered resume processing (Google Gemini Vision API): multi-language OCR, structured data extraction from Hebrew/English resumes, confidence scoring; reduced manual data entry by 95\%+
+    \item MongoDB schemas, RESTful API routes, Twilio WhatsApp integration for data ingestion; enterprise-grade security (bcrypt, rate limiting, session auth); Cloudinary, analytics dashboard, advanced search
+\end{itemize}
+\vspace{0.5em}
+\noindent\textbf{TheraBot - Fine-tuned AI Model}\\
+Fine-tuned Llama model with LoRA ranking on therapy conversation datasets; RAG and deployment.\\
+\href{https://github.com/NatanelRichey/therabot}{GitHub} $|$ Demo available upon request
+\vspace{0.3em}\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=0pt, partopsep=0pt]
+    \item RAG implementation using FAISS vector store with E5 embeddings
+    \item Weights \& Biases experiment tracking and model monitoring; deployment on HuggingFace Spaces and Google Colab with GPU acceleration
+\end{itemize}
+\vspace{0.5em}
+\end{document}
